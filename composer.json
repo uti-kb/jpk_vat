@@ -1,0 +1,24 @@
+{
+    "name": "sj_royd/xml-jpk-vat",
+    "description": "Generator and parser JPK_VAT.",
+    "license": "MIT",
+    "keywords": ["jpk", "vat", "jpk_vat", "generator", "parser"],
+    "authors": [
+        {
+            "name": "Royd",
+            "role": "original developer"
+        }
+    ],
+    "require": {
+        "php" : ">=7.0",
+        "sabre/xml": "^2.1"
+    },
+    "autoload": {
+        "files" : [
+            "src/Helper/functions.php"
+        ],
+        "psr-4" : {
+            "SJRoyd\\JPK\\VAT\\" : "src/"
+        }
+    }
+}
