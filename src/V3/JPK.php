@@ -57,7 +57,7 @@ class JPK implements XmlSerializable, XmlDeserializable
     /**
      * @return SellRow
      */
-    public function newSellRow(): SellRow
+    public function newSellRow()
     {
         return new SellRow;
     }
@@ -74,7 +74,7 @@ class JPK implements XmlSerializable, XmlDeserializable
      * @param SellRow[] $sellRows
      * @return JPK
      */
-    public function setSellRows(array $sellRows): JPK
+    public function setSellRows(array $sellRows)
     {
         $this->sellRows = $sellRows;
         return $this;
@@ -84,7 +84,7 @@ class JPK implements XmlSerializable, XmlDeserializable
      * @param SellRow $sellRow
      * @return JPK
      */
-    public function addSellRow(SellRow $sellRow): JPK
+    public function addSellRow(SellRow $sellRow)
     {
         $this->sellRows[] = $sellRow;
         return $this;
@@ -93,7 +93,7 @@ class JPK implements XmlSerializable, XmlDeserializable
     /**
      * @return BuyRow
      */
-    public function newBuyRow(): BuyRow
+    public function newBuyRow()
     {
         return new BuyRow;
     }
@@ -110,7 +110,7 @@ class JPK implements XmlSerializable, XmlDeserializable
      * @param BuyRow[] $buyRows
      * @return JPK
      */
-    public function setBuyRows(array $buyRows): JPK
+    public function setBuyRows(array $buyRows)
     {
         $this->buyRows = $buyRows;
         return $this;
@@ -120,7 +120,7 @@ class JPK implements XmlSerializable, XmlDeserializable
      * @param BuyRow $buyRow
      * @return JPK
      */
-    public function addBuyRow(BuyRow $buyRow): JPK
+    public function addBuyRow(BuyRow $buyRow)
     {
         $this->buyRows[] = $buyRow;
         return $this;

@@ -2,12 +2,12 @@
 
 namespace SJRoyd\JPK\VAT\V1;
 
+use Sabre\Xml\Element\KeyValue;
 use Sabre\Xml\Reader;
 use Sabre\Xml\Writer;
 use Sabre\Xml\XmlDeserializable;
 use Sabre\Xml\XmlSerializable;
 use SJRoyd\JPK\VAT\Helper;
-use function Sabre\Xml\Deserializer\keyValue;
 
 /**
  * @method SellRow setK42(float $value)
@@ -258,7 +258,7 @@ class BuyRow implements XmlSerializable, XmlDeserializable
      */
     public static function xmlDeserialize(Reader $reader)
     {
-        $keyValue = keyValue($reader);
+        $keyValue = KeyValue::xmlDeserialize($reader);
 
         $object = new self();
         self::$index            = $keyValue[Schema::NS.'LpZakupu'];

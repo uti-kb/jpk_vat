@@ -57,7 +57,7 @@ class JPK implements XmlSerializable, XmlDeserializable
     /**
      * @return SellRow
      */
-    public function newSellRow(): SellRow
+    public function newSellRow()
     {
         return new SellRow;
     }
@@ -85,7 +85,7 @@ class JPK implements XmlSerializable, XmlDeserializable
     /**
      * @return BuyRow
      */
-    public function newBuyRow(): BuyRow
+    public function newBuyRow()
     {
         return new BuyRow;
     }
