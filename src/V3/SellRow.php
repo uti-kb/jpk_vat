@@ -91,6 +91,11 @@ class SellRow implements XmlSerializable, XmlDeserializable
      */
     protected $address;
 
+    /**
+     * @var string
+     */
+    protected $countryCode;
+
     protected $fields = [
         'K10' => null,
         'K11' => null,
@@ -193,6 +198,24 @@ class SellRow implements XmlSerializable, XmlDeserializable
     {
         $this->issueDate = $issueDate instanceof \DateTime
                 ? $issueDate : new \DateTime($issueDate);
+        return $this;
+    }
+
+    /**
+     * @return string
+     */
+    public function getCountryCode($countryCode)
+    {
+        return $this->countryCode;
+    }
+
+    /**
+     * @param string $countryCode
+     * @return SellRow
+     */
+    public function setCountryCode($countryCode)
+    {
+        $this->countryCode = $countryCode;
         return $this;
     }
 
@@ -705,6 +728,12 @@ class SellRow implements XmlSerializable, XmlDeserializable
             ]);
         }
 
+        if ($this->countryCode) {
+            $writer->write([
+                'KodKrajuNadaniaTIN' => $this->countryCode,
+            ]);
+        }
+
         $fields = array_filter($this->fields, function($val){
             return $val !== null;
         });
@@ -731,6 +760,7 @@ class SellRow implements XmlSerializable, XmlDeserializable
                 Helper\array_get($keyValue, Schema::NS.'DataSprzedazy', '\DateTime')
                 ?
                 : $object->sellDate;
+        $object->countryCode = $keyValue[Schema::NS.'KodKrajuNadaniaTIN'];
 
         foreach($object->getFields() as $field => $_unused){
             $object->{'set'.$field}(Helper\array_get($keyValue, Schema::NS.$field));

@@ -1,12 +1,16 @@
 {
-    "name": "sj_royd/xml-jpk-vat",
+    "name": "uti-kb/xml-jpk-vat",
     "description": "Generator and parser JPK_VAT.",
     "license": "MIT",
     "keywords": ["jpk", "vat", "jpk_vat", "generator", "parser"],
     "authors": [
         {
             "name": "Royd",
-            "role": "original developer"
+            "role": "Original Developer"
+        },
+        {
+            "name": "uti-kb",
+            "role": "Contributor"
         }
     ],
     "require": {
