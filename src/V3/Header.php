@@ -25,7 +25,12 @@ class Header implements Helper\HeaderInterface, XmlSerializable, XmlDeserializab
     /**
      * @var \DateTime
      */
-    protected $date;
+    protected $dateFrom;
+
+    /**
+     * @var \DateTime
+     */
+    protected $dateTo;
 
     /**
      *
@@ -48,22 +53,33 @@ class Header implements Helper\HeaderInterface, XmlSerializable, XmlDeserializab
 
     /**
      *
-     * @return string
+     * @return \DateTime|string
      */
-    public function getRangeDate($format = 'Y-m-01')
+    public function getRangeDateFrom($format = 'Y-m-d')
     {
-        return $format ? $this->date->format($format) : $this->date;
+        return $format ? $this->dateFrom->format($format) : $this->dateFrom;
     }
 
     /**
      *
-     * @param int $year
-     * @param int $month
+     * @return \DateTime|string
+     */
+    public function getRangeDateTo($format = 'Y-m-d')
+    {
+        return $format ? $this->dateTo->format($format) : $this->dateTo;
+    }
+
+    /**
+     *
+     * @param \DateTime|string $fromDate
+     * @param \DateTime|string $toDate
      * @return Header
      */
-    public function setRangeDates($year, $month)
+    public function setRangeDates($fromDate, $toDate)
     {
-        $this->date = new \DateTime("{$year}-{$month}");
+        $this->dateFrom = $fromDate instanceof \DateTime ? $fromDate : new \DateTime($fromDate);
+        $this->dateTo = $toDate instanceof \DateTime ? $toDate : new \DateTime($toDate);
+
         return $this;
     }
 
@@ -91,7 +107,7 @@ class Header implements Helper\HeaderInterface, XmlSerializable, XmlDeserializab
             throw new \InvalidArgumentException('Missing reason of submission');
         }
 
-        if (!$this->date) {
+        if (! $this->dateFrom || ! $this->dateTo) {
             throw new \InvalidArgumentException('Missing date range');
         }
 
@@ -123,8 +139,8 @@ class Header implements Helper\HeaderInterface, XmlSerializable, XmlDeserializab
             'CelZlozenia' => $this->reason,
             'DataWytworzeniaJPK' => (new \DateTime('now', new \DateTimeZone('UTC')))
                 ->format('Y-m-d\TH:i:s\Z'),
-            'DataOd' => $this->date->format('Y-m-01'),
-            'DataDo' => $this->date->format('Y-m-t'),
+            'DataOd' => $this->dateFrom->format('Y-m-d'),
+            'DataDo' => $this->dateTo->format('Y-m-d'),
             'NazwaSystemu' => $this->systemName
         ]);
     }
@@ -140,7 +156,8 @@ class Header implements Helper\HeaderInterface, XmlSerializable, XmlDeserializab
 
         $object = new self();
         $object->reason     = $keyValue[Schema::NS.'CelZlozenia'];
-        $object->date       = new \DateTime($keyValue[Schema::NS.'DataOd']);
+        $object->dateFrom   = new \DateTime($keyValue[Schema::NS.'DataOd']);
+        $object->dateTo     = new \DateTime($keyValue[Schema::NS.'DataDo']);
         $object->systemName = $keyValue[Schema::NS.'NazwaSystemu'];
         return $object;
     }
