@@ -715,9 +715,9 @@ class SellRow implements XmlSerializable, XmlDeserializable
 
         $writer->write([
             'LpSprzedazy'       => self::$index,
-            'NrKontrahenta'     => $this->nip ?: 'brak',
-            'NazwaKontrahenta'  => $this->name ?: 'brak',
-            'AdresKontrahenta'  => $this->address ?: 'brak',
+            'NrKontrahenta'     => $this->nip ?: 'BRAK',
+            'NazwaKontrahenta'  => $this->name ?: 'BRAK',
+            'AdresKontrahenta'  => $this->address ?: 'BRAK',
             'DowodSprzedazy'    => $this->id,
             'DataWystawienia'   => $this->issueDate->format('Y-m-d')
         ]);
@@ -750,20 +750,20 @@ class SellRow implements XmlSerializable, XmlDeserializable
         $keyValue = keyValue($reader);
 
         $object = new self();
-        self::$index        = $keyValue[Schema::NS.'LpSprzedazy'];
-        $object->nip        = $keyValue[Schema::NS.'NrKontrahenta'];
-        $object->name       = $keyValue[Schema::NS.'NazwaKontrahenta'];
-        $object->address    = $keyValue[Schema::NS.'AdresKontrahenta'];
-        $object->id         = $keyValue[Schema::NS.'DowodSprzedazy'];
-        $object->issueDate  = new \DateTime($keyValue[Schema::NS.'DataWystawienia']);
+        self::$index        = $keyValue[Schema::TNS.'LpSprzedazy'];
+        $object->nip        = $keyValue[Schema::TNS.'NrKontrahenta'];
+        $object->name       = $keyValue[Schema::TNS.'NazwaKontrahenta'];
+        $object->address    = $keyValue[Schema::TNS.'AdresKontrahenta'];
+        $object->id         = $keyValue[Schema::TNS.'DowodSprzedazy'];
+        $object->issueDate  = new \DateTime($keyValue[Schema::TNS.'DataWystawienia']);
         $object->sellDate   =
-                Helper\array_get($keyValue, Schema::NS.'DataSprzedazy', '\DateTime')
+                Helper\array_get($keyValue, Schema::TNS.'DataSprzedazy', '\DateTime')
                 ?
                 : $object->sellDate;
-        $object->countryCode = $keyValue[Schema::NS.'KodKrajuNadaniaTIN'];
+        $object->countryCode = $keyValue[Schema::TNS.'KodKrajuNadaniaTIN'];
 
         foreach($object->getFields() as $field => $_unused){
-            $object->{'set'.$field}(Helper\array_get($keyValue, Schema::NS.$field));
+            $object->{'set'.$field}(Helper\array_get($keyValue, Schema::TNS.$field));
         }
 
         return $object;

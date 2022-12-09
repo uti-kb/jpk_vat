@@ -209,7 +209,7 @@ class JPK implements XmlSerializable, XmlDeserializable
             Schema::getNS('XSL') => 'xsl',
             Schema::getNS('USR') => 'usr',
         ];
-        return $xmlService->write('JPK', [
+        return $xmlService->write(Schema::getNS('TNS') . 'JPK', [
             $this
         ]);
     }
