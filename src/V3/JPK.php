@@ -201,8 +201,13 @@ class JPK implements XmlSerializable, XmlDeserializable
     {
         $xmlService = new Service();
         $xmlService->namespaceMap = [
-            Schema::getNS('NS') => '',
-            Schema::getNS('ETD') => 'etd'
+            Schema::getNS('TNS') => 'tns',
+            Schema::getNS('XSI') => 'xsi',
+            Schema::getNS('ETD') => 'etd',
+            Schema::getNS('KCK') => 'kck',
+            Schema::getNS('XSD') => 'xsd',
+            Schema::getNS('XSL') => 'xsl',
+            Schema::getNS('USR') => 'usr',
         ];
         return $xmlService->write('JPK', [
             $this
@@ -218,13 +223,13 @@ class JPK implements XmlSerializable, XmlDeserializable
     {
         $service = new Service();
         $service->elementMap = [
-            Schema::NS.'JPK'            => JPK::class,
-            Schema::NS.'Naglowek'       => Header::class,
-            Schema::NS.'Podmiot1'       => Company::class,
-            Schema::NS.'ZakupWiersz'    => BuyRow::class,
-            Schema::NS.'ZakupCtrl'      => BuyControl::class,
-            Schema::NS.'SprzedazWiersz' => SellRow::class,
-            Schema::NS.'SprzedazCtrl'   => SellControl::class,
+            Schema::TNS.'JPK'            => JPK::class,
+            Schema::TNS.'Naglowek'       => Header::class,
+            Schema::TNS.'Podmiot1'       => Company::class,
+            Schema::TNS.'ZakupWiersz'    => BuyRow::class,
+            Schema::TNS.'ZakupCtrl'      => BuyControl::class,
+            Schema::TNS.'SprzedazWiersz' => SellRow::class,
+            Schema::TNS.'SprzedazCtrl'   => SellControl::class,
         ];
 
         return $service->parse($xml);
