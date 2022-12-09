@@ -206,7 +206,7 @@ class JPK implements XmlSerializable, XmlDeserializable
             Schema::getNS('ETD') => 'etd',
             Schema::getNS('KCK') => 'kck',
             Schema::getNS('XSD') => 'xsd',
-            Schema::getNS('XSL') => 'xsl',
+            Schema::getNS('MSXSL') => 'msxsl',
             Schema::getNS('USR') => 'usr',
         ];
 
