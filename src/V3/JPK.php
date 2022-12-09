@@ -209,9 +209,11 @@ class JPK implements XmlSerializable, XmlDeserializable
             Schema::getNS('XSL') => 'xsl',
             Schema::getNS('USR') => 'usr',
         ];
-        return $xmlService->write(Schema::getFullNS('TNS') . 'JPK', [
-            $this
-        ]);
+
+        return $xmlService->write(Schema::getFullNS('TNS') . 'JPK', function($xmlWriter) {
+            $xmlWriter->writeAttribute('xsi:schemaLocation', 'http://jpk.mf.gov.pl/wzor/2017/11/13/1113/ http://www.mf.gov.pl/documents/764034/6145258/Schemat_JPK_VAT(3)_v1-1.xsd');
+            $xmlWriter->write($this);
+        });
     }
 
     /**
