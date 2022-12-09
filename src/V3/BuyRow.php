@@ -249,17 +249,17 @@ class BuyRow implements XmlSerializable, XmlDeserializable
         $this->validate();
 
         $writer->write([
-            'LpZakupu'      => self::$index,
-            'NrDostawcy'    => $this->nip ?: 'brak',
-            'NazwaDostawcy' => $this->name ?: 'brak',
-            'AdresDostawcy' => $this->address ?: 'brak',
-            'DowodZakupu'   => $this->id,
-            'DataZakupu'    => $this->buyDate->format('Y-m-d')
+            Schema::getFullNS('TNS') . 'LpZakupu'      => self::$index,
+            Schema::getFullNS('TNS') . 'NrDostawcy'    => $this->nip ?: 'brak',
+            Schema::getFullNS('TNS') . 'NazwaDostawcy' => $this->name ?: 'brak',
+            Schema::getFullNS('TNS') . 'AdresDostawcy' => $this->address ?: 'brak',
+            Schema::getFullNS('TNS') . 'DowodZakupu'   => $this->id,
+            Schema::getFullNS('TNS') . 'DataZakupu'    => $this->buyDate->format('Y-m-d')
         ]);
 
         if($this->receivedDate && $this->receivedDate != $this->buyDate){
             $writer->write([
-                'DataWplywu' => $this->receivedDate
+                Schema::getFullNS('TNS') . 'DataWplywu' => $this->receivedDate
             ]);
         }
 
@@ -268,7 +268,7 @@ class BuyRow implements XmlSerializable, XmlDeserializable
         });
         foreach($fields as $field => $value){
             $writer->write([
-                $field => sprintf('%.2f', $value)
+                Schema::getFullNS('TNS') . $field => sprintf('%.2f', $value)
             ]);
         }
 

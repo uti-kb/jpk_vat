@@ -22,8 +22,8 @@ class SellControl implements XmlSerializable, XmlDeserializable
     public function xmlSerialize(Writer $writer)
     {
         $writer->write([
-            'LiczbaWierszySprzedazy'    => $this->count,
-            'PodatekNalezny'            => sprintf('%.2f', $this->tax)
+            Schema::getFullNS('TNS') . 'LiczbaWierszySprzedazy'    => $this->count,
+            Schema::getFullNS('TNS') . 'PodatekNalezny'            => sprintf('%.2f', $this->tax)
         ]);
     }
 
@@ -37,8 +37,8 @@ class SellControl implements XmlSerializable, XmlDeserializable
         $keyValue = keyValue($reader);
 
         $object = new self();
-        $object->count  = $keyValue[Schema::NS.'LiczbaWierszySprzedazy'];
-        $object->tax    = $keyValue[Schema::NS.'PodatekNalezny'];
+        $object->count  = $keyValue[Schema::TNS.'LiczbaWierszySprzedazy'];
+        $object->tax    = $keyValue[Schema::TNS.'PodatekNalezny'];
         return $object;
     }
 

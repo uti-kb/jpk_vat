@@ -106,11 +106,11 @@ class Company implements XmlSerializable, XmlDeserializable
         $this->validate();
 
         $writer->write([
-            'NIP'           => $this->nip,
-            'PelnaNazwa'    => $this->name,
+            Schema::getFullNS('TNS') . 'NIP'           => $this->nip,
+            Schema::getFullNS('TNS') . 'PelnaNazwa'    => $this->name,
         ]);
         $this->email && $writer->write([
-            'Email'         => $this->email
+            Schema::getFullNS('TNS') . 'Email'         => $this->email
         ]);
     }
 
@@ -124,9 +124,9 @@ class Company implements XmlSerializable, XmlDeserializable
         $keyValue = keyValue($reader);
 
         $object = new self();
-        $object->nip    = $keyValue[Schema::NS.'NIP'];
-        $object->name   = $keyValue[Schema::NS.'PelnaNazwa'];
-        $object->email  = Helper\array_get($keyValue, Schema::NS.'Email');
+        $object->nip    = $keyValue[Schema::TNS.'NIP'];
+        $object->name   = $keyValue[Schema::TNS.'PelnaNazwa'];
+        $object->email  = Helper\array_get($keyValue, Schema::TNS.'Email');
         return $object;
     }
 

@@ -128,20 +128,20 @@ class Header implements Helper\HeaderInterface, XmlSerializable, XmlDeserializab
 
         $writer->write([
             [
-                'name' => 'KodFormularza',
+                'name' => Schema::getFullNS('TNS') . 'KodFormularza',
                 'value' => $this->getFormCode(),
                 'attributes' => [
                     'kodSystemowy' => $this->getSystemCode(),
                     'wersjaSchemy' => $this->getSchema(),
                 ]
             ],
-            'WariantFormularza' => $this->getFormVariant(),
-            'CelZlozenia' => $this->reason,
-            'DataWytworzeniaJPK' => (new \DateTime('now', new \DateTimeZone('UTC')))
+            Schema::getFullNS('TNS') . 'WariantFormularza' => $this->getFormVariant(),
+            Schema::getFullNS('TNS') . 'CelZlozenia' => $this->reason,
+            Schema::getFullNS('TNS') . 'DataWytworzeniaJPK' => (new \DateTime('now', new \DateTimeZone('UTC')))
                 ->format('Y-m-d\TH:i:s\Z'),
-            'DataOd' => $this->dateFrom->format('Y-m-d'),
-            'DataDo' => $this->dateTo->format('Y-m-d'),
-            'NazwaSystemu' => $this->systemName
+            Schema::getFullNS('TNS') . 'DataOd' => $this->dateFrom->format('Y-m-d'),
+            Schema::getFullNS('TNS') . 'DataDo' => $this->dateTo->format('Y-m-d'),
+            Schema::getFullNS('TNS') . 'NazwaSystemu' => $this->systemName
         ]);
     }
 
@@ -155,10 +155,10 @@ class Header implements Helper\HeaderInterface, XmlSerializable, XmlDeserializab
         $keyValue = keyValue($reader);
 
         $object = new self();
-        $object->reason     = $keyValue[Schema::NS.'CelZlozenia'];
-        $object->dateFrom   = new \DateTime($keyValue[Schema::NS.'DataOd']);
-        $object->dateTo     = new \DateTime($keyValue[Schema::NS.'DataDo']);
-        $object->systemName = $keyValue[Schema::NS.'NazwaSystemu'];
+        $object->reason     = $keyValue[Schema::TNS.'CelZlozenia'];
+        $object->dateFrom   = new \DateTime($keyValue[Schema::TNS.'DataOd']);
+        $object->dateTo     = new \DateTime($keyValue[Schema::TNS.'DataDo']);
+        $object->systemName = $keyValue[Schema::TNS.'NazwaSystemu'];
         return $object;
     }
 

@@ -135,33 +135,33 @@ class JPK implements XmlSerializable, XmlDeserializable
     public function xmlSerialize(Writer $writer)
     {
         $writer->write([
-            'Naglowek' => $this->header,
-            'Podmiot1' => $this->company
+            Schema::getFullNS('TNS') . 'Naglowek' => $this->header,
+            Schema::getFullNS('TNS') . 'Podmiot1' => $this->company
         ]);
 
         if($this->buyRows){
             foreach($this->buyRows as $row){
                 $writer->write([
-                    'ZakupWiersz' => $row
+                    Schema::getFullNS('TNS') . 'ZakupWiersz' => $row
                 ]);
                 $this->buyControl->addCount();
                 $this->buyControl->addTax($row->getTax());
             }
             $writer->write([
-                'ZakupCtrl' => $this->buyControl
+                Schema::getFullNS('TNS') . 'ZakupCtrl' => $this->buyControl
             ]);
         }
 
         if($this->sellRows){
             foreach($this->sellRows as $row){
                 $writer->write([
-                    'SprzedazWiersz' => $row
+                    Schema::getFullNS('TNS') . 'SprzedazWiersz' => $row
                 ]);
                 $this->sellControl->addCount();
                 $this->sellControl->addTax($row->getTax());
             }
             $writer->write([
-                'SprzedazCtrl' => $this->sellControl
+                Schema::getFullNS('TNS') . 'SprzedazCtrl' => $this->sellControl
             ]);
         }
 
@@ -209,7 +209,7 @@ class JPK implements XmlSerializable, XmlDeserializable
             Schema::getNS('XSL') => 'xsl',
             Schema::getNS('USR') => 'usr',
         ];
-        return $xmlService->write(Schema::getNS('TNS') . 'JPK', [
+        return $xmlService->write(Schema::getFullNS('TNS') . 'JPK', [
             $this
         ]);
     }

@@ -22,8 +22,8 @@ class BuyControl implements XmlSerializable, XmlDeserializable
     public function xmlSerialize(Writer $writer)
     {
         $writer->write([
-            'LiczbaWierszyZakupow' => $this->count,
-            'PodatekNaliczony' => sprintf('%.2f', $this->tax)
+            Schema::getFullNS('TNS') . 'LiczbaWierszyZakupow' => $this->count,
+            Schema::getFullNS('TNS') . 'PodatekNaliczony' => sprintf('%.2f', $this->tax)
         ]);
     }
 
@@ -37,8 +37,8 @@ class BuyControl implements XmlSerializable, XmlDeserializable
         $keyValue = keyValue($reader);
 
         $object = new self();
-        $object->count = $keyValue[Schema::NS.'LiczbaWierszyZakupow'];
-        $object->tax = $keyValue[Schema::NS.'PodatekNaliczony'];
+        $object->count = $keyValue[Schema::TNS.'LiczbaWierszyZakupow'];
+        $object->tax = $keyValue[Schema::TNS.'PodatekNaliczony'];
         return $object;
     }
 

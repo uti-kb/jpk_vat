@@ -714,30 +714,33 @@ class SellRow implements XmlSerializable, XmlDeserializable
         $this->validate();
 
         $writer->write([
-            'LpSprzedazy'       => self::$index,
-            'NrKontrahenta'     => $this->nip ?: 'BRAK',
-            'NazwaKontrahenta'  => $this->name ?: 'BRAK',
-            'AdresKontrahenta'  => $this->address ?: 'BRAK',
-            'DowodSprzedazy'    => $this->id,
-            'DataWystawienia'   => $this->issueDate->format('Y-m-d')
+            Schema::getFullNS('TNS') . 'LpSprzedazy'       => self::$index,
+            Schema::getFullNS('TNS') . 'NrKontrahenta'     => $this->nip ?: 'BRAK',
+            Schema::getFullNS('TNS') . 'NazwaKontrahenta'  => $this->name ?: 'BRAK',
+            Schema::getFullNS('TNS') . 'AdresKontrahenta'  => $this->address ?: 'BRAK',
+            Schema::getFullNS('TNS') . 'DowodSprzedazy'    => $this->id,
+            Schema::getFullNS('TNS') . 'DataWystawienia'   => $this->issueDate->format('Y-m-d')
         ]);
 
         if($this->sellDate && $this->sellDate != $this->issueDate){
             $writer->write([
-                'DataSprzedazy' => $this->sellDate->format('Y-m-d')
+                Schema::getFullNS('TNS') . 'DataSprzedazy' => $this->sellDate->format('Y-m-d')
             ]);
         }
 
         if ($this->countryCode) {
             $writer->write([
-                'KodKrajuNadaniaTIN' => $this->countryCode,
+                Schema::getFullNS('TNS') . 'KodKrajuNadaniaTIN' => $this->countryCode,
             ]);
         }
 
         $fields = array_filter($this->fields, function($val){
             return $val !== null;
         });
-        $writer->write($fields);
+
+        foreach ($fields as $field => $value) {
+            $writer->write([Schema::getFullNS('TNS') . $field => $value]);
+        }
     }
 
     /**
