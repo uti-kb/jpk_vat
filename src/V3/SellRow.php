@@ -739,6 +739,8 @@ class SellRow implements XmlSerializable, XmlDeserializable
         });
 
         foreach ($fields as $field => $value) {
+            $field = preg_replace('/^K(\d)$/', 'K_\1', $field);
+
             $writer->write([Schema::getFullNS('TNS') . $field => $value]);
         }
     }
