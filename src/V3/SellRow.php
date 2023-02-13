@@ -71,6 +71,7 @@ use function Sabre\Xml\Deserializer\keyValue;
  * @method SellRow setK39(float $value)
  * @method float getK39()
  */
+#[\AllowDynamicProperties]
 class SellRow implements XmlSerializable, XmlDeserializable
 {
     use Helper\BuySellRow;

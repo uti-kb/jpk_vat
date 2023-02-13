@@ -9,6 +9,7 @@ use Sabre\Xml\XmlSerializable;
 use SJRoyd\JPK\VAT\Helper;
 use function Sabre\Xml\Deserializer\keyValue;
 
+#[\AllowDynamicProperties]
 class Header implements Helper\HeaderInterface, XmlSerializable, XmlDeserializable
 {
     use Helper\Header;
