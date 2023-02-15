@@ -138,7 +138,13 @@ trait BuySellRow {
                 return $this;
             }
             !$this->fields[$field] && $this->fields[$field] = 0;
-            $this->fields[$field] += $value;
+
+            if (! is_numeric($value)) {
+                $this->fields[$field] = $value;
+                $value = 0;
+            } else {
+                $this->fields[$field] += $value;
+            }
 
             if(self::$fieldsControl[$field] > 0){
                 self::$sum += $value;
