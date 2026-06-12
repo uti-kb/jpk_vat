@@ -14,8 +14,8 @@
         }
     ],
     "require": {
-        "php" : ">=8.0",
-        "sabre/xml": "^2.1"
+        "php" : ">=8.2",
+        "sabre/xml": "^4.1"
     },
     "autoload": {
         "files" : [

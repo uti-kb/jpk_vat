@@ -19,7 +19,7 @@ class BuyControl implements XmlSerializable, XmlDeserializable
      * @param Writer $writer
      * @return void
      */
-    public function xmlSerialize(Writer $writer)
+    public function xmlSerialize(Writer $writer): void
     {
         $writer->write([
             Schema::getFullNS('TNS') . 'LiczbaWierszyZakupow' => $this->count,

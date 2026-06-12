@@ -115,7 +115,7 @@ class JPK implements XmlSerializable, XmlDeserializable
      * @param Writer $writer
      * @return void
      */
-    public function xmlSerialize(Writer $writer)
+    public function xmlSerialize(Writer $writer): void
     {
         $writer->write([
             'Naglowek' => $this->header,
