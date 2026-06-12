@@ -6,7 +6,7 @@ use SJRoyd\JPK\VAT\V3\JPK;
 
 $jpk = new JPK();
 $jpk->header
-        ->setRangeDates(2019, 2)
+        ->setRangeDates('2019-02-01', '2019-02-28')
         ->setSystemName('Mój system informatyczny');
 
 $jpk->company

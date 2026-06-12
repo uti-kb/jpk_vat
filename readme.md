@@ -1,7 +1,12 @@
 
-# Generator/parser JPK_VAT
+# Generator/parser JPK_VAT / JPK_V7M
 
-Biblioteka umożliwia generowanie plików XML JPK_VAT dla dalszych procesów związanych z wysyłką przez bramkę eDokumenty oraz parser pliku XML do obiektów celem ewentualnych importów do systemów finansowych.
+Biblioteka umożliwia generowanie plików XML JPK_V7M (z obsługą KSeF) oraz historycznych JPK_VAT dla dalszych procesów związanych z wysyłką przez bramkę eDokumenty oraz parser pliku XML do obiektów celem ewentualnych importów do systemów finansowych.
+
+Obsługiwane warianty:
+
+- **JPK_V7M (3)**, wersja schemy 1-0E — ewidencja + deklaracja VAT-7(23), z oznaczeniami faktur w Krajowym Systemie e-Faktur (KSeF); obowiązuje dla rozliczeń od lutego 2026
+- JPK_VAT (1), (2), (3) — warianty historyczne (2016–2017)
 
 ## Instalacja
 
@@ -9,15 +14,17 @@ Biblioteka umożliwia generowanie plików XML JPK_VAT dla dalszych procesów zwi
 
 ## Tworzenie pliku XML
 
-Generator XML domyślnie używa wariantu 3 JPK_VAT.
+Generator XML domyślnie tworzy plik JPK_V7M (3).
 
     <?php
 
     use SJRoyd\JPK\VAT\JPK;
+    use SJRoyd\JPK\VAT\V7M\SellRow;
 
     $jpk = new JPK();
     $jpk->header
-            ->setRangeDates(2019, 2)
+            ->setPeriod(2026, 2)
+            ->setOfficeCode('0202')
             ->setSystemName('Mój system informatyczny');
 
     $jpk->company
@@ -25,125 +32,202 @@ Generator XML domyślnie używa wariantu 3 JPK_VAT.
             ->setNip('4165741358')
             ->setEmail('moja@firma.email');
 
+    // faktura zakupu z KSeF
     $buy = $jpk->newBuyRow()
             ->setContractorName('Firma A')
-            ->setContractorId('468713551')
-            ->setContractorAddress('al. Późna 4/2, 45-678 Łękożna')
-            ->setId('FV/01/19')
-            ->setBuyDate('2019-01-12')
+            ->setContractorId('4687135510')
+            ->setId('FV/01/26')
+            ->setBuyDate('2026-02-12')
+            ->setKsefNumber('4687135510-20260212-010203-ABCDEF-04')
             ->setFixedAssets(150.42, 24.12);
     $jpk->addBuyRow($buy);
 
+    // faktura zakupu spoza KSeF (papierowa lub elektroniczna)
     $buy = $jpk->newBuyRow()
             ->setContractorName('Firma B')
             ->setContractorId('9514786631')
-            ->setContractorAddress('ul. Łąka Żubra 5, 12-345 Mściłówek')
-            ->setId('001254/19/S/S')
-            ->setBuyDate('2019-01-08')
+            ->setId('001254/26/S/S')
+            ->setBuyDate('2026-02-08')
+            ->setNonKsefInvoice()
             ->setOtherAssets(315.20, 41.36);
     $jpk->addBuyRow($buy);
 
+    // faktura sprzedaży z KSeF, z kodem GTU i oznaczeniem procedury
     $sell = $jpk->newSellRow()
-            ->setContractorName('DROP TABLE `users`')
+            ->setContractorName('Kontrahent X')
             ->setContractorId('6521475511')
-            ->setContractorAddress('ul. Mnoga 8, 00-001 Bronki')
-            ->setId('FV/SGD/1/2019')
-            ->setSellDate('2019-01-09')
-            ->setIssueDate('2019-01-10')
+            ->setId('FV/SGD/1/2026')
+            ->setSellDate('2026-02-09')
+            ->setIssueDate('2026-02-10')
+            ->setKsefNumber('4165741358-20260210-0A0B0C-D0E0F0-01')
+            ->setGTU(6, 12)
+            ->setProcedure('TP')
             ->setTaxExempt(50.12)
             ->setTaxA(100, 23)
             ->setTaxB(42, 12);
     $jpk->addSellRow($sell);
 
+    // część deklaracyjna VAT-7 (23)
+    $declaration = $jpk->newDeclaration()
+            ->setP10(50)
+            ->setP19(913)
+            ->setP20(222)
+            ->setOutputTax(234)     // P_38
+            ->setInputTax(65)       // P_48
+            ->setTaxToPay(169);     // P_51
+    $jpk->setDeclaration($declaration);
+
     print_r($jpk->generate());
 
 ## Parsowanie pliku XML do obiektów
 
-Parser XML JPK_VAT potrafi automatycznie sprawdzić wariant i skonwertować dane do obiektów w wyznaczonym wariancie.
+Parser XML potrafi automatycznie sprawdzić wariant (w tym JPK_V7M po atrybucie `kodSystemowy`) i skonwertować dane do obiektów w wyznaczonym wariancie.
 
     <?php
 
-    include '../vendor/autoload.php';
-
     use SJRoyd\JPK\VAT\JPK;
 
-    $xml = <<<XML
-    <?xml version="1.0"?>
-    <JPK xmlns="http://jpk.mf.gov.pl/wzor/2017/11/13/1113/" xmlns:etd="http://crd.gov.pl/xml/schematy/dziedzinowe/mf/2016/01/25/eD/DefinicjeTypy/">
-     <Naglowek>
-      <KodFormularza kodSystemowy="JPK_VAT (3)" wersjaSchemy="1-1">JPK_VAT</KodFormularza>
-      <WariantFormularza>3</WariantFormularza>
-      <CelZlozenia>0</CelZlozenia>
-      <DataWytworzeniaJPK>2019-05-21T09:36:46Z</DataWytworzeniaJPK>
-      <DataOd>2019-02-01</DataOd>
-      <DataDo>2019-02-28</DataDo>
-      <NazwaSystemu>Mój system informatyczny</NazwaSystemu>
-     </Naglowek>
-     <Podmiot1>
-      <NIP>4165741358</NIP>
-      <PelnaNazwa>Moja Firma</PelnaNazwa>
-      <Email>moja@firma.email</Email>
-     </Podmiot1>
-     <ZakupWiersz>
-      <LpZakupu>0</LpZakupu>
-      <NrDostawcy>468713551</NrDostawcy>
-      <NazwaDostawcy>Firma A</NazwaDostawcy>
-      <AdresDostawcy>al. Późna 4/2, 45-678 Łękożna</AdresDostawcy>
-      <DowodZakupu>FV/01/19</DowodZakupu>
-      <DataZakupu>2019-01-12</DataZakupu>
-      <K43>150.42</K43>
-      <K44>24.12</K44>
-     </ZakupWiersz>
-     <ZakupWiersz>
-      <LpZakupu>1</LpZakupu>
-      <NrDostawcy>9514786631</NrDostawcy>
-      <NazwaDostawcy>Firma B</NazwaDostawcy>
-      <AdresDostawcy>ul. Łąka Żubra 5, 12-345 Mściłówek</AdresDostawcy>
-      <DowodZakupu>001254/19/S/S</DowodZakupu>
-      <DataZakupu>2019-01-08</DataZakupu>
-      <K45>315.20</K45>
-      <K46>41.36</K46>
-     </ZakupWiersz>
-     <ZakupCtrl>
-      <LiczbaWierszyZakupow>2</LiczbaWierszyZakupow>
-      <PodatekNaliczony>65.48</PodatekNaliczony>
-     </ZakupCtrl>
-     <SprzedazWiersz>
-      <LpSprzedazy>1</LpSprzedazy>
-      <NrKontrahenta>6521475511</NrKontrahenta>
-      <NazwaKontrahenta>DROP TABLE `users`</NazwaKontrahenta>
-      <AdresKontrahenta>ul. Mnoga 8, 00-001 Bronki</AdresKontrahenta>
-      <DowodSprzedazy>FV/SGD/1/2019</DowodSprzedazy>
-      <DataWystawienia>2019-01-10</DataWystawienia>
-      <DataSprzedazy>2019-01-09</DataSprzedazy>
-      <K10>50.12</K10>
-      <K17>42</K17>
-      <K18>12</K18>
-      <K19>100</K19>
-      <K20>23</K20>
-     </SprzedazWiersz>
-     <SprzedazCtrl>
-      <LiczbaWierszySprzedazy>1</LiczbaWierszySprzedazy>
-      <PodatekNalezny>35.00</PodatekNalezny>
-     </SprzedazCtrl>
-    </JPK>
-    XML;
-
     $jpk = JPK::parse($xml);
+    print_r($jpk->sellRows[0]->getKsefNumber());
     print_r($jpk->buyRows[0]->getFixedAssets());
-    print_r($jpk->sellRows[0]->getContractorAddress());
 
 ## Generowanie/parsowanie w konkretnym wariancie
 
-Istnieje możliwość generowania i parsowania konkretnych wariantów JPK_VAT. W tym celu należy użyć jednego z poniższych namespace:
+Istnieje możliwość generowania i parsowania konkretnych wariantów. W tym celu należy użyć jednego z poniższych namespace:
 
-    SJRoyd\JPK\VAT\V1\JPK;
-    SJRoyd\JPK\VAT\V2\JPK;
-    SJRoyd\JPK\VAT\V3\JPK;
+    SJRoyd\JPK\VAT\V7M\JPK;    // JPK_V7M (3) z KSeF - bieżący
+    SJRoyd\JPK\VAT\V1\JPK;     // JPK_VAT (1) - historyczny
+    SJRoyd\JPK\VAT\V2\JPK;     // JPK_VAT (2) - historyczny
+    SJRoyd\JPK\VAT\V3\JPK;     // JPK_VAT (3) - historyczny
+
+# JPK_V7M (3)
+
+## Nagłówek
+
+Obiekt Header `($jpk->header)`:
+
+- `setPeriod($year, $month)` okres rozliczeniowy (Rok, Miesiac); rok od 2026
+- `setOfficeCode($code)` czterocyfrowy kod urzędu skarbowego (KodUrzedu)
+- `setSystemName($name)` nazwa systemu (NazwaSystemu, opcjonalna)
+- `setCorrection()` oznacza plik jako korektę (CelZlozenia = 2)
+- gettery: `getYear()`, `getMonth()`, `getOfficeCode()`, `getSystemName()`, `getReasonOfSubmission()`
+
+## Podmiot
+
+Obiekt Company `($jpk->company)` reprezentuje Podmiot1. Podmiotem może być firma (OsobaNiefizyczna) albo osoba fizyczna (OsobaFizyczna):
+
+- `setNip($nip)`
+- `setName($fullName)` pełna nazwa — podmiot staje się osobą niefizyczną
+- `setPerson($firstName, $lastName, $birthDate)` — podmiot staje się osobą fizyczną
+- `setEmail($email)` wymagany
+- `setPhone($phone)` opcjonalny
+
+## Oznaczenia KSeF
+
+W każdym wierszu ewidencji (sprzedaży i zakupu) **wymagane jest dokładnie jedno** z oznaczeń dotyczących występowania faktury w Krajowym Systemie e-Faktur. Ustawienie jednego oznaczenia usuwa pozostałe.
+
+| Element XML | Metoda | Znaczenie |
+|---|---|---|
+| `NrKSeF` | `setKsefNumber($nr)` | numer identyfikujący fakturę w KSeF (walidowany wzorcem) |
+| `OFF` | `setKsefOffline()` | faktura wystawiona w trybie offline (art. 106nf ustawy), bez numeru KSeF na dzień złożenia |
+| `BFK` | `setNonKsefInvoice()` | faktura elektroniczna lub papierowa wystawiona poza KSeF |
+| `DI` | `setOtherDocument()` | dowód inny niż faktura |
+
+Odczyt: `getKsefNumber()`, `isKsefOffline()`, `isNonKsefInvoice()`, `isOtherDocument()`.
 
 ## Wiersz sprzedaży
 
-Obiekt BuyRow `($jpk->newSellRow())` zawiera metody pozwalające na zapis i pobranie danych *(pola Kxx odpowiadają numerom pól na deklaracji VAT-7(19))*:
+Obiekt SellRow `($jpk->newSellRow())` — pola `K_xx` odpowiadają polom ewidencji sprzedaży JPK_V7M:
+
+- Nr dokumentu: `getId()` / `setId($id)`
+- NIP kontrahenta: `getContractorId()` / `setContractorId($nip)` (`BRAK` gdy nie podano)
+- Nazwa kontrahenta: `getContractorName()` / `setContractorName($name)`
+- Kod kraju nadania TIN: `getContractorCountryCode()` / `setContractorCountryCode($code)`
+- Data wystawienia: `getIssueDate($format = 'Y-m-d')` / `setIssueDate($issueDate)`
+- Data sprzedaży *(wymagana gdy inna niż data wystawienia)*: `getSellDate($format = 'Y-m-d')` / `setSellDate($sellDate)`
+- Oznaczenie KSeF *(wymagane)* — patrz wyżej
+- Typ dokumentu (TypDokumentu): `setDocumentType($type)` — `RO` (raport okresowy z kasy), `WEW` (dokument wewnętrzny), `FP` (faktura do paragonu); stałe `SellRow::DOC_RO`, `DOC_WEW`, `DOC_FP`
+- Kody grup towarowych GTU_01–GTU_13: `setGTU(6, 12)` / `getGTU()`
+- Oznaczenia procedur: `setProcedure('TP', 'WSTO_EE')` / `getProcedures()` — dozwolone: `WSTO_EE`, `IED`, `TP`, `TT_WNT`, `TT_D`, `MR_T`, `MR_UZ`, `I_42`, `I_63`, `B_SPV`, `B_SPV_DOSTAWA`, `B_MPV_PROWIZJA`
+- Korekta podstawy opodatkowania (ulga na złe długi, art. 89a): `setBadDebtCorrection($date, $isPaymentDate = false)` — `$date` to termin płatności (art. 89a ust. 1) lub data zapłaty (art. 89a ust. 4 przy `$isPaymentDate = true`)
+- Sprzedaż VAT marża: `setMargin($gross)` / `getMargin()` (SprzedazVAT_Marza)
+
+Pozycje kwotowe można ustawiać ręcznie metodami `setK10($val)`…`setK36($val)`, `setK360($val)` (mapowane na pola `K_10`–`K_36`, `K_360`) lub metodami intuicyjnymi:
+
+1. Dostawa zwolniona od podatku (K_10): `setTaxExempt($net)` / `getTaxExempt()`
+2. Dostawa poza terytorium kraju (K_11, K_12): `setAbroadDelivery($net, $netA = null)` / `getAbroadDelivery()`
+3. Dostawa opodatkowana stawką 0% (K_13, K_14): `setTaxD($net, $netA = null)` / `getTaxD()`
+4. Dostawa opodatkowana stawką 5% (K_15, K_16): `setTaxC($net, $tax)` / `getTaxC()`
+5. Dostawa opodatkowana stawką 7% albo 8% (K_17, K_18): `setTaxB($net, $tax)` / `getTaxB()`
+6. Dostawa opodatkowana stawką 22% albo 23% (K_19, K_20): `setTaxA($net, $tax)` / `getTaxA()`
+7. Wewnątrzwspólnotowa dostawa towarów (K_21): `setExportUE($net)` / `getExportUE()`
+8. Eksport towarów (K_22): `setExport($net)` / `getExport()`
+9. Wewnątrzwspólnotowe nabycie towarów (K_23, K_24): `setImportUE($net, $tax)` / `getImportUE()`
+10. Import towarów zgodnie z art. 33a (K_25, K_26): `setImport_Art33a($net, $tax)` / `getImport_Art33a()`
+11. Import usług z wyłączeniem art. 28b (K_27, K_28): `setImport_Art28bExcept($net, $tax)` / `getImport_Art28bExcept()`
+12. Import usług z art. 28b (K_29, K_30): `setImport_Art28bOnly($net, $tax)` / `getImport_Art28bOnly()`
+13. Dostawa, dla której podatnikiem jest nabywca zgodnie z art. 17 ust. 1 pkt 5 (K_31, K_32): `setReverseChargeBuyer_Art17u1p5($net, $tax)` / `getReverseChargeBuyer_Art17u1p5()`
+14. Podatek od spisu z natury, art. 14 ust. 5 (K_33): `setPsychicalInventoryTax($tax)` / `getPsychicalInventoryTax()`
+15. Zwrot ulgi na kasy rejestrujące, art. 111 ust. 6 (K_34): `setCashRegisterTaxBack($tax)` / `getCashRegisterTaxBack()`
+16. Podatek od WNT środków transportu, art. 103 ust. 3 i 4 (K_35): `setTransportImportUeTaxDue($tax)` / `getTransportImportUeTaxDue()`
+17. Podatek od WNT towarów z art. 103 ust. 5aa (K_36): `setFuelImportUeTax($tax)` / `getFuelImportUeTax()`
+18. Podatek od niezwróconej kaucji w systemie kaucyjnym, art. 17b (K_360): `setDepositTax($tax)` / `getDepositTax()`
+
+Sumy kontrolne (SprzedazCtrl) liczone są automatycznie podczas generowania; wiersze z typem dokumentu `FP` są wliczane do liczby wierszy, ale wyłączone z sumy podatku należnego.
+
+## Wiersz zakupu
+
+Obiekt BuyRow `($jpk->newBuyRow())`:
+
+- Nr dokumentu: `getId()` / `setId($id)`
+- NIP dostawcy: `getContractorId()` / `setContractorId($nip)`
+- Nazwa dostawcy: `getContractorName()` / `setContractorName($name)`
+- Kod kraju nadania TIN: `getContractorCountryCode()` / `setContractorCountryCode($code)`
+- Data zakupu: `getBuyDate($format = 'Y-m-d')` / `setBuyDate($buyDate)`
+- Data wpływu *(wymagana gdy inna niż data zakupu)*: `getReceiveDate($format = 'Y-m-d')` / `setReceiveDate($receiveDate)`
+- Oznaczenie KSeF *(wymagane)* — patrz wyżej
+- Oznaczenie dowodu zakupu (DokumentZakupu): `setDocumentType($type)` — `MK` (metoda kasowa), `VAT_RR`, `WEW`; stałe `BuyRow::DOC_MK`, `DOC_VAT_RR`, `DOC_WEW`
+- Import towarów, art. 33a (IMP): `setImport()` / `isImport()`
+- Zakup VAT marża: `setMargin($value)` / `getMargin()` (ZakupVAT_Marza)
+
+Pozycje kwotowe (`setK40($val)`…`setK47($val)`, mapowane na `K_40`–`K_47`) lub metody intuicyjne:
+
+- Nabycie środków trwałych (K_40, K_41): `setFixedAssets($net, $tax)` / `getFixedAssets()`
+- Nabycie pozostałych towarów i usług (K_42, K_43): `setOtherAssets($net, $tax)` / `getOtherAssets()`
+- Korekta podatku naliczonego od środków trwałych (K_44): `setFixedAssetsTaxCorrection($tax)` / `getFixedAssetsTaxCorrection()`
+- Korekta podatku naliczonego od pozostałych nabyć (K_45): `setOtherAssetsTaxCorrection($tax)` / `getOtherAssetsTaxCorrection()`
+- Korekta z art. 89b ust. 1 (K_46): `setTaxCorrectionArt89bu1($tax)` / `getTaxCorrectionArt89bu1()`
+- Korekta z art. 89b ust. 4 (K_47): `setTaxCorrectionArt89bu4($tax)` / `getTaxCorrectionArt89bu4()`
+
+## Deklaracja
+
+Obiekt Declaration `($jpk->newDeclaration()` + `$jpk->setDeclaration($declaration))` reprezentuje opcjonalną część deklaracyjną VAT-7 (23). Kwoty deklaracji podaje się w pełnych złotych (są zaokrąglane przy zapisie).
+
+Wszystkie pozycje można ustawiać i odczytywać metodami `setP10($val)`/`getP10()` … `setP69($val)`/`getP69()` (w tym `setP360()`, `setP540()`, `setP560()`, `setP660()`), mapowanymi na pola `P_10`–`P_69`. Dodatkowo:
+
+- `setOutputTax($tax)` łączna wysokość podatku należnego (P_38, wymagane — domyślnie 0)
+- `setInputTax($tax)` łączna wysokość podatku naliczonego do odliczenia (P_48)
+- `setPreviousSurplus($value)` nadwyżka z poprzedniej deklaracji (P_39)
+- `setTaxToPay($tax)` podatek podlegający wpłacie (P_51, wymagane — domyślnie 0)
+- `setSurplus($value)` nadwyżka podatku naliczonego nad należnym (P_53)
+- `setRefund($amount, $option)` zwrot nadwyżki (P_54 + wybór sposobu zwrotu); `$option` to jedna ze stałych:
+    - `Declaration::REFUND_15_DAYS` (P_540)
+    - `Declaration::REFUND_25_DAYS_VAT` (P_55, na rachunek VAT)
+    - `Declaration::REFUND_25_DAYS` (P_56)
+    - `Declaration::REFUND_40_DAYS` (P_560)
+    - `Declaration::REFUND_180_DAYS` (P_58)
+- `setSurplusToCarryOver($value)` nadwyżka do przeniesienia na następny okres (P_62)
+- `setCorrectionReason($text)` uzasadnienie przyczyn złożenia korekty (P_ORDZU)
+
+Element `Pouczenia` jest zawsze zapisywany z wartością `1` (akceptacja pouczeń).
+
+# Warianty historyczne JPK_VAT (1–3)
+
+Poniższa dokumentacja dotyczy wyłącznie wariantów `V1`/`V2`/`V3` (pliki za okresy do września 2020).
+
+## Wiersz sprzedaży
+
+Obiekt SellRow `($jpk->newSellRow())` zawiera metody pozwalające na zapis i pobranie danych *(pola Kxx odpowiadają numerom pól na deklaracji VAT-7(19))*:
 
 - Nr faktury
 

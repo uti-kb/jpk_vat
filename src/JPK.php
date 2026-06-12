@@ -5,13 +5,14 @@ namespace SJRoyd\JPK\VAT;
 use SJRoyd\JPK\VAT\V1;
 use SJRoyd\JPK\VAT\V2;
 use SJRoyd\JPK\VAT\V3;
+use SJRoyd\JPK\VAT\V7M;
 
-class JPK extends V3\JPK
+class JPK extends V7M\JPK
 {
     /**
      * Checks the form variant and parse the XML document
      * @param string $xml
-     * @return V1\JPK|V2\JPK|V3\JPK
+     * @return V1\JPK|V2\JPK|V3\JPK|V7M\JPK
      */
     public static function parse($xml)
     {

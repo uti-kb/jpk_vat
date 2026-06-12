@@ -10,7 +10,8 @@ class Parser
     protected $xml_record;
     protected $xml_current_field = '';
     protected $xmlHeader;
-    private $substringLimit = 1024;
+    protected $systemCode;
+    private $substringLimit = 4096;
 
     /**
      * @param string $xml
@@ -19,6 +20,9 @@ class Parser
     public function getVersion($xml)
     {
         $this->loadDataFromXml($xml);
+        if (preg_match('~^JPK_V7M~', (string) $this->systemCode)) {
+            return '7M';
+        }
         return $this->xmlHeader['WariantFormularza'];
     }
     /**
@@ -77,6 +81,10 @@ class Parser
     protected function xml_start_element($p, $element, &$attributes){
         $str = preg_replace('~(.+:)?(.*)~', '$2', $element);
         $this->xml_current_field = $str;
+
+        if($str == 'KodFormularza' && isset($attributes['kodSystemowy'])){
+            $this->systemCode = $attributes['kodSystemowy'];
+        }
     }
 
     /**
