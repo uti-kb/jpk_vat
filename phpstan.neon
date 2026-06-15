@@ -1,0 +1,27 @@
+includes:
+    # Zamraża 315 zastanych ostrzeżeń legacy (błędne PHPDoc w traitach, dynamiczne właściwości,
+    # defekty getterów K49/K50 itp.) — niezwiązanych z modernizacją PHP 8.2. PHPStan nadal
+    # wywala się na NOWYCH regresjach. Do stopniowego sprzątania w przyszłości.
+    - phpstan-baseline.neon
+
+parameters:
+    level: 5
+    paths:
+        - src
+        # examples/ pominięte — proceduralne smoke-skrypty, sprawdzane runtime'owo (sekcja D planu)
+
+    # Kod ma bogate PHPDoc, ale też dużo defensywnych sprawdzeń (is_null na @var float itp.).
+    # false => PHPStan nie traktuje typów z PHPDoc jako pewnych, więc nie flaguje tych sprawdzeń
+    # jako "zawsze prawda/fałsz" (mniej fałszywych trafień, mniejszy baseline).
+    treatPhpDocTypesAsCertain: false
+
+    # Agregaty JPK z __get + klasy #[AllowDynamicProperties] to "worki na właściwości";
+    # crate'ujemy je, by dowolny odczyt ($jpk->header, $header->systemName) był zamierzony.
+    universalObjectCratesClasses:
+        - SJRoyd\JPK\VAT\V3\JPK
+        - SJRoyd\JPK\VAT\V7M\JPK
+        - SJRoyd\JPK\VAT\V3\Header
+        - SJRoyd\JPK\VAT\V7M\Header
+        - SJRoyd\JPK\VAT\V3\SellRow
+        - SJRoyd\JPK\VAT\V7M\SellRow
+        - SJRoyd\JPK\VAT\V7M\BuyRow

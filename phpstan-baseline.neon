@@ -1,0 +1,1273 @@
+parameters:
+	ignoreErrors:
+		-
+			message: '#^PHPDoc tag @param for parameter \$attributes with type SJRoyd\\JPK\\VAT\\type is incompatible with native type array\.$#'
+			identifier: parameter.phpDocType
+			count: 1
+			path: src/Parser.php
+
+		-
+			message: '#^Parameter \#1 \$string of function trim expects string, SJRoyd\\JPK\\VAT\\type given\.$#'
+			identifier: argument.type
+			count: 2
+			path: src/Parser.php
+
+		-
+			message: '#^Parameter \#3 \$subject of function preg_replace expects array\<float\|int\|string\>\|string, SJRoyd\\JPK\\VAT\\type given\.$#'
+			identifier: argument.type
+			count: 2
+			path: src/Parser.php
+
+		-
+			message: '#^Parameter \#3 \$value of function xml_parser_set_option expects int\|string, false given\.$#'
+			identifier: argument.type
+			count: 1
+			path: src/Parser.php
+
+		-
+			message: '#^Parameter \$attributes of method SJRoyd\\JPK\\VAT\\Parser\:\:xml_start_element\(\) has invalid type SJRoyd\\JPK\\VAT\\type\.$#'
+			identifier: class.notFound
+			count: 1
+			path: src/Parser.php
+
+		-
+			message: '#^Parameter \$element of method SJRoyd\\JPK\\VAT\\Parser\:\:xml_end_element\(\) has invalid type SJRoyd\\JPK\\VAT\\type\.$#'
+			identifier: class.notFound
+			count: 1
+			path: src/Parser.php
+
+		-
+			message: '#^Parameter \$element of method SJRoyd\\JPK\\VAT\\Parser\:\:xml_start_element\(\) has invalid type SJRoyd\\JPK\\VAT\\type\.$#'
+			identifier: class.notFound
+			count: 1
+			path: src/Parser.php
+
+		-
+			message: '#^Parameter \$text of method SJRoyd\\JPK\\VAT\\Parser\:\:xml_cdata\(\) has invalid type SJRoyd\\JPK\\VAT\\type\.$#'
+			identifier: class.notFound
+			count: 1
+			path: src/Parser.php
+
+		-
+			message: '#^Access to an undefined property SJRoyd\\JPK\\VAT\\V1\\BuyControl\:\:\$buyVat\.$#'
+			identifier: property.notFound
+			count: 1
+			path: src/V1/BuyControl.php
+
+		-
+			message: '#^Method SJRoyd\\JPK\\VAT\\V1\\BuyControl\:\:addCount\(\) has invalid return type SJRoyd\\JPK\\VAT\\Helper\\BuyControl\.$#'
+			identifier: class.notFound
+			count: 1
+			path: src/V1/BuyControl.php
+
+		-
+			message: '#^Method SJRoyd\\JPK\\VAT\\V1\\BuyControl\:\:addCount\(\) should return SJRoyd\\JPK\\VAT\\Helper\\BuyControl but returns \$this\(SJRoyd\\JPK\\VAT\\V1\\BuyControl\)\.$#'
+			identifier: return.type
+			count: 1
+			path: src/V1/BuyControl.php
+
+		-
+			message: '#^Method SJRoyd\\JPK\\VAT\\V1\\BuyControl\:\:addTax\(\) has invalid return type SJRoyd\\JPK\\VAT\\Helper\\BuyControl\.$#'
+			identifier: class.notFound
+			count: 1
+			path: src/V1/BuyControl.php
+
+		-
+			message: '#^Method SJRoyd\\JPK\\VAT\\V1\\BuyControl\:\:addTax\(\) should return SJRoyd\\JPK\\VAT\\Helper\\BuyControl but returns \$this\(SJRoyd\\JPK\\VAT\\V1\\BuyControl\)\.$#'
+			identifier: return.type
+			count: 1
+			path: src/V1/BuyControl.php
+
+		-
+			message: '#^Method SJRoyd\\JPK\\VAT\\V1\\BuyControl\:\:setCount\(\) has invalid return type SJRoyd\\JPK\\VAT\\Helper\\BuyControl\.$#'
+			identifier: class.notFound
+			count: 1
+			path: src/V1/BuyControl.php
+
+		-
+			message: '#^Method SJRoyd\\JPK\\VAT\\V1\\BuyControl\:\:setCount\(\) should return SJRoyd\\JPK\\VAT\\Helper\\BuyControl but returns \$this\(SJRoyd\\JPK\\VAT\\V1\\BuyControl\)\.$#'
+			identifier: return.type
+			count: 1
+			path: src/V1/BuyControl.php
+
+		-
+			message: '#^Method SJRoyd\\JPK\\VAT\\V1\\BuyControl\:\:setTax\(\) has invalid return type SJRoyd\\JPK\\VAT\\Helper\\BuyControl\.$#'
+			identifier: class.notFound
+			count: 1
+			path: src/V1/BuyControl.php
+
+		-
+			message: '#^Method SJRoyd\\JPK\\VAT\\V1\\BuyControl\:\:setTax\(\) should return SJRoyd\\JPK\\VAT\\Helper\\BuyControl but returns \$this\(SJRoyd\\JPK\\VAT\\V1\\BuyControl\)\.$#'
+			identifier: return.type
+			count: 1
+			path: src/V1/BuyControl.php
+
+		-
+			message: '#^Access to an undefined property SJRoyd\\JPK\\VAT\\V1\\BuyRow\:\:\$address\.$#'
+			identifier: property.notFound
+			count: 4
+			path: src/V1/BuyRow.php
+
+		-
+			message: '#^Cannot access offset 0 on float\.$#'
+			identifier: offsetAccess.nonOffsetAccessible
+			count: 1
+			path: src/V1/BuyRow.php
+
+		-
+			message: '#^Method SJRoyd\\JPK\\VAT\\V1\\BuyRow\:\:__call\(\) has invalid return type SJRoyd\\JPK\\VAT\\Helper\\SellRow\.$#'
+			identifier: return.trait
+			count: 1
+			path: src/V1/BuyRow.php
+
+		-
+			message: '#^Method SJRoyd\\JPK\\VAT\\V1\\BuyRow\:\:__call\(\) should return SJRoyd\\JPK\\VAT\\Helper\\SellRow but return statement is missing\.$#'
+			identifier: return.missing
+			count: 1
+			path: src/V1/BuyRow.php
+
+		-
+			message: '#^Method SJRoyd\\JPK\\VAT\\V1\\BuyRow\:\:__call\(\) should return SJRoyd\\JPK\\VAT\\Helper\\SellRow but returns \$this\(SJRoyd\\JPK\\VAT\\V1\\BuyRow\)\.$#'
+			identifier: return.type
+			count: 2
+			path: src/V1/BuyRow.php
+
+		-
+			message: '#^Method SJRoyd\\JPK\\VAT\\V1\\BuyRow\:\:setContractorAddress\(\) has invalid return type SJRoyd\\JPK\\VAT\\Helper\\SellRow\.$#'
+			identifier: return.trait
+			count: 1
+			path: src/V1/BuyRow.php
+
+		-
+			message: '#^Method SJRoyd\\JPK\\VAT\\V1\\BuyRow\:\:setContractorAddress\(\) should return SJRoyd\\JPK\\VAT\\Helper\\SellRow but returns \$this\(SJRoyd\\JPK\\VAT\\V1\\BuyRow\)\.$#'
+			identifier: return.type
+			count: 1
+			path: src/V1/BuyRow.php
+
+		-
+			message: '#^Method SJRoyd\\JPK\\VAT\\V1\\BuyRow\:\:setContractorId\(\) has invalid return type SJRoyd\\JPK\\VAT\\Helper\\SellRow\.$#'
+			identifier: return.trait
+			count: 1
+			path: src/V1/BuyRow.php
+
+		-
+			message: '#^Method SJRoyd\\JPK\\VAT\\V1\\BuyRow\:\:setContractorId\(\) should return SJRoyd\\JPK\\VAT\\Helper\\SellRow but returns \$this\(SJRoyd\\JPK\\VAT\\V1\\BuyRow\)\.$#'
+			identifier: return.type
+			count: 1
+			path: src/V1/BuyRow.php
+
+		-
+			message: '#^Method SJRoyd\\JPK\\VAT\\V1\\BuyRow\:\:setContractorName\(\) has invalid return type SJRoyd\\JPK\\VAT\\Helper\\SellRow\.$#'
+			identifier: return.trait
+			count: 1
+			path: src/V1/BuyRow.php
+
+		-
+			message: '#^Method SJRoyd\\JPK\\VAT\\V1\\BuyRow\:\:setContractorName\(\) should return SJRoyd\\JPK\\VAT\\Helper\\SellRow but returns \$this\(SJRoyd\\JPK\\VAT\\V1\\BuyRow\)\.$#'
+			identifier: return.type
+			count: 1
+			path: src/V1/BuyRow.php
+
+		-
+			message: '#^Method SJRoyd\\JPK\\VAT\\V1\\BuyRow\:\:setId\(\) has invalid return type SJRoyd\\JPK\\VAT\\Helper\\SellRow\.$#'
+			identifier: return.trait
+			count: 1
+			path: src/V1/BuyRow.php
+
+		-
+			message: '#^Method SJRoyd\\JPK\\VAT\\V1\\BuyRow\:\:setId\(\) should return SJRoyd\\JPK\\VAT\\Helper\\SellRow but returns \$this\(SJRoyd\\JPK\\VAT\\V1\\BuyRow\)\.$#'
+			identifier: return.type
+			count: 1
+			path: src/V1/BuyRow.php
+
+		-
+			message: '#^PHPDoc tag @return with type SJRoyd\\JPK\\VAT\\V1\\BuyRow is not subtype of native type static\(SJRoyd\\JPK\\VAT\\V1\\BuyRow\)\.$#'
+			identifier: return.phpDocType
+			count: 6
+			path: src/V1/BuyRow.php
+
+		-
+			message: '#^PHPDoc tag @return with type SJRoyd\\JPK\\VAT\\V1\\SellRow is incompatible with native type static\(SJRoyd\\JPK\\VAT\\V1\\BuyRow\)\.$#'
+			identifier: return.phpDocType
+			count: 1
+			path: src/V1/BuyRow.php
+
+		-
+			message: '#^PHPDoc tag @throws with type SJRoyd\\JPK\\VAT\\Helper\\InvalidArgumentException is not subtype of Throwable$#'
+			identifier: throws.notThrowable
+			count: 1
+			path: src/V1/BuyRow.php
+
+		-
+			message: '#^PHPDoc tag @return with type SJRoyd\\JPK\\VAT\\V1\\CompanyIdentity is not subtype of native type static\(SJRoyd\\JPK\\VAT\\V1\\CompanyIdentity\)\.$#'
+			identifier: return.phpDocType
+			count: 2
+			path: src/V1/CompanyIdentity.php
+
+		-
+			message: '#^PHPDoc tag @return with type SJRoyd\\JPK\\VAT\\V1\\Header is not subtype of native type static\(SJRoyd\\JPK\\VAT\\V1\\Header\)\.$#'
+			identifier: return.phpDocType
+			count: 2
+			path: src/V1/Header.php
+
+		-
+			message: '#^PHPDoc tag @return with type SJRoyd\\JPK\\VAT\\V1\\JPK is not subtype of native type static\(SJRoyd\\JPK\\VAT\\V1\\JPK\)\.$#'
+			identifier: return.phpDocType
+			count: 4
+			path: src/V1/JPK.php
+
+		-
+			message: '#^Method SJRoyd\\JPK\\VAT\\V1\\SellControl\:\:addCount\(\) has invalid return type SJRoyd\\JPK\\VAT\\Helper\\BuyControl\.$#'
+			identifier: class.notFound
+			count: 1
+			path: src/V1/SellControl.php
+
+		-
+			message: '#^Method SJRoyd\\JPK\\VAT\\V1\\SellControl\:\:addCount\(\) should return SJRoyd\\JPK\\VAT\\Helper\\BuyControl but returns \$this\(SJRoyd\\JPK\\VAT\\V1\\SellControl\)\.$#'
+			identifier: return.type
+			count: 1
+			path: src/V1/SellControl.php
+
+		-
+			message: '#^Method SJRoyd\\JPK\\VAT\\V1\\SellControl\:\:addTax\(\) has invalid return type SJRoyd\\JPK\\VAT\\Helper\\BuyControl\.$#'
+			identifier: class.notFound
+			count: 1
+			path: src/V1/SellControl.php
+
+		-
+			message: '#^Method SJRoyd\\JPK\\VAT\\V1\\SellControl\:\:addTax\(\) should return SJRoyd\\JPK\\VAT\\Helper\\BuyControl but returns \$this\(SJRoyd\\JPK\\VAT\\V1\\SellControl\)\.$#'
+			identifier: return.type
+			count: 1
+			path: src/V1/SellControl.php
+
+		-
+			message: '#^Method SJRoyd\\JPK\\VAT\\V1\\SellControl\:\:setCount\(\) has invalid return type SJRoyd\\JPK\\VAT\\Helper\\BuyControl\.$#'
+			identifier: class.notFound
+			count: 1
+			path: src/V1/SellControl.php
+
+		-
+			message: '#^Method SJRoyd\\JPK\\VAT\\V1\\SellControl\:\:setCount\(\) should return SJRoyd\\JPK\\VAT\\Helper\\BuyControl but returns \$this\(SJRoyd\\JPK\\VAT\\V1\\SellControl\)\.$#'
+			identifier: return.type
+			count: 1
+			path: src/V1/SellControl.php
+
+		-
+			message: '#^Method SJRoyd\\JPK\\VAT\\V1\\SellControl\:\:setTax\(\) has invalid return type SJRoyd\\JPK\\VAT\\Helper\\BuyControl\.$#'
+			identifier: class.notFound
+			count: 1
+			path: src/V1/SellControl.php
+
+		-
+			message: '#^Method SJRoyd\\JPK\\VAT\\V1\\SellControl\:\:setTax\(\) should return SJRoyd\\JPK\\VAT\\Helper\\BuyControl but returns \$this\(SJRoyd\\JPK\\VAT\\V1\\SellControl\)\.$#'
+			identifier: return.type
+			count: 1
+			path: src/V1/SellControl.php
+
+		-
+			message: '#^Call to an undefined method SJRoyd\\JPK\\VAT\\V1\\SellRow\:\:getK23\(\)\.$#'
+			identifier: method.notFound
+			count: 2
+			path: src/V1/SellRow.php
+
+		-
+			message: '#^Cannot access offset 0 on float\.$#'
+			identifier: offsetAccess.nonOffsetAccessible
+			count: 1
+			path: src/V1/SellRow.php
+
+		-
+			message: '#^Method SJRoyd\\JPK\\VAT\\V1\\SellRow\:\:__call\(\) has invalid return type SJRoyd\\JPK\\VAT\\Helper\\SellRow\.$#'
+			identifier: return.trait
+			count: 1
+			path: src/V1/SellRow.php
+
+		-
+			message: '#^Method SJRoyd\\JPK\\VAT\\V1\\SellRow\:\:__call\(\) should return SJRoyd\\JPK\\VAT\\Helper\\SellRow but return statement is missing\.$#'
+			identifier: return.missing
+			count: 1
+			path: src/V1/SellRow.php
+
+		-
+			message: '#^Method SJRoyd\\JPK\\VAT\\V1\\SellRow\:\:__call\(\) should return SJRoyd\\JPK\\VAT\\Helper\\SellRow but returns \$this\(SJRoyd\\JPK\\VAT\\V1\\SellRow\)\.$#'
+			identifier: return.type
+			count: 2
+			path: src/V1/SellRow.php
+
+		-
+			message: '#^Method SJRoyd\\JPK\\VAT\\V1\\SellRow\:\:setContractorAddress\(\) has invalid return type SJRoyd\\JPK\\VAT\\Helper\\SellRow\.$#'
+			identifier: return.trait
+			count: 1
+			path: src/V1/SellRow.php
+
+		-
+			message: '#^Method SJRoyd\\JPK\\VAT\\V1\\SellRow\:\:setContractorAddress\(\) should return SJRoyd\\JPK\\VAT\\Helper\\SellRow but returns \$this\(SJRoyd\\JPK\\VAT\\V1\\SellRow\)\.$#'
+			identifier: return.type
+			count: 1
+			path: src/V1/SellRow.php
+
+		-
+			message: '#^Method SJRoyd\\JPK\\VAT\\V1\\SellRow\:\:setContractorId\(\) has invalid return type SJRoyd\\JPK\\VAT\\Helper\\SellRow\.$#'
+			identifier: return.trait
+			count: 1
+			path: src/V1/SellRow.php
+
+		-
+			message: '#^Method SJRoyd\\JPK\\VAT\\V1\\SellRow\:\:setContractorId\(\) should return SJRoyd\\JPK\\VAT\\Helper\\SellRow but returns \$this\(SJRoyd\\JPK\\VAT\\V1\\SellRow\)\.$#'
+			identifier: return.type
+			count: 1
+			path: src/V1/SellRow.php
+
+		-
+			message: '#^Method SJRoyd\\JPK\\VAT\\V1\\SellRow\:\:setContractorName\(\) has invalid return type SJRoyd\\JPK\\VAT\\Helper\\SellRow\.$#'
+			identifier: return.trait
+			count: 1
+			path: src/V1/SellRow.php
+
+		-
+			message: '#^Method SJRoyd\\JPK\\VAT\\V1\\SellRow\:\:setContractorName\(\) should return SJRoyd\\JPK\\VAT\\Helper\\SellRow but returns \$this\(SJRoyd\\JPK\\VAT\\V1\\SellRow\)\.$#'
+			identifier: return.type
+			count: 1
+			path: src/V1/SellRow.php
+
+		-
+			message: '#^Method SJRoyd\\JPK\\VAT\\V1\\SellRow\:\:setId\(\) has invalid return type SJRoyd\\JPK\\VAT\\Helper\\SellRow\.$#'
+			identifier: return.trait
+			count: 1
+			path: src/V1/SellRow.php
+
+		-
+			message: '#^Method SJRoyd\\JPK\\VAT\\V1\\SellRow\:\:setId\(\) should return SJRoyd\\JPK\\VAT\\Helper\\SellRow but returns \$this\(SJRoyd\\JPK\\VAT\\V1\\SellRow\)\.$#'
+			identifier: return.type
+			count: 1
+			path: src/V1/SellRow.php
+
+		-
+			message: '#^PHPDoc tag @method has invalid value \(float getK203\)\)\: Unexpected token "\)", expected ''\('' at offset 954 on line 29$#'
+			identifier: phpDoc.parseError
+			count: 1
+			path: src/V1/SellRow.php
+
+		-
+			message: '#^PHPDoc tag @return with type SJRoyd\\JPK\\VAT\\V1\\SellRow is not subtype of native type static\(SJRoyd\\JPK\\VAT\\V1\\SellRow\)\.$#'
+			identifier: return.phpDocType
+			count: 2
+			path: src/V1/SellRow.php
+
+		-
+			message: '#^PHPDoc tag @throws with type SJRoyd\\JPK\\VAT\\Helper\\InvalidArgumentException is not subtype of Throwable$#'
+			identifier: throws.notThrowable
+			count: 1
+			path: src/V1/SellRow.php
+
+		-
+			message: '#^Parameter \#1 \$value of method SJRoyd\\JPK\\VAT\\V1\\SellRow\:\:setK17\(\) expects float, SJRoyd\\JPK\\VAT\\V1\\type given\.$#'
+			identifier: argument.type
+			count: 1
+			path: src/V1/SellRow.php
+
+		-
+			message: '#^Parameter \#1 \$value of method SJRoyd\\JPK\\VAT\\V1\\SellRow\:\:setK18\(\) expects float, SJRoyd\\JPK\\VAT\\V1\\type given\.$#'
+			identifier: argument.type
+			count: 1
+			path: src/V1/SellRow.php
+
+		-
+			message: '#^Parameter \$net of method SJRoyd\\JPK\\VAT\\V1\\SellRow\:\:setTaxB\(\) has invalid type SJRoyd\\JPK\\VAT\\V1\\type\.$#'
+			identifier: class.notFound
+			count: 1
+			path: src/V1/SellRow.php
+
+		-
+			message: '#^Parameter \$tax of method SJRoyd\\JPK\\VAT\\V1\\SellRow\:\:setTaxB\(\) has invalid type SJRoyd\\JPK\\VAT\\V1\\type\.$#'
+			identifier: class.notFound
+			count: 1
+			path: src/V1/SellRow.php
+
+		-
+			message: '#^Method SJRoyd\\JPK\\VAT\\V2\\BuyControl\:\:addCount\(\) has invalid return type SJRoyd\\JPK\\VAT\\Helper\\BuyControl\.$#'
+			identifier: class.notFound
+			count: 1
+			path: src/V2/BuyControl.php
+
+		-
+			message: '#^Method SJRoyd\\JPK\\VAT\\V2\\BuyControl\:\:addCount\(\) should return SJRoyd\\JPK\\VAT\\Helper\\BuyControl but returns \$this\(SJRoyd\\JPK\\VAT\\V2\\BuyControl\)\.$#'
+			identifier: return.type
+			count: 1
+			path: src/V2/BuyControl.php
+
+		-
+			message: '#^Method SJRoyd\\JPK\\VAT\\V2\\BuyControl\:\:addTax\(\) has invalid return type SJRoyd\\JPK\\VAT\\Helper\\BuyControl\.$#'
+			identifier: class.notFound
+			count: 1
+			path: src/V2/BuyControl.php
+
+		-
+			message: '#^Method SJRoyd\\JPK\\VAT\\V2\\BuyControl\:\:addTax\(\) should return SJRoyd\\JPK\\VAT\\Helper\\BuyControl but returns \$this\(SJRoyd\\JPK\\VAT\\V2\\BuyControl\)\.$#'
+			identifier: return.type
+			count: 1
+			path: src/V2/BuyControl.php
+
+		-
+			message: '#^Method SJRoyd\\JPK\\VAT\\V2\\BuyControl\:\:setCount\(\) has invalid return type SJRoyd\\JPK\\VAT\\Helper\\BuyControl\.$#'
+			identifier: class.notFound
+			count: 1
+			path: src/V2/BuyControl.php
+
+		-
+			message: '#^Method SJRoyd\\JPK\\VAT\\V2\\BuyControl\:\:setCount\(\) should return SJRoyd\\JPK\\VAT\\Helper\\BuyControl but returns \$this\(SJRoyd\\JPK\\VAT\\V2\\BuyControl\)\.$#'
+			identifier: return.type
+			count: 1
+			path: src/V2/BuyControl.php
+
+		-
+			message: '#^Method SJRoyd\\JPK\\VAT\\V2\\BuyControl\:\:setTax\(\) has invalid return type SJRoyd\\JPK\\VAT\\Helper\\BuyControl\.$#'
+			identifier: class.notFound
+			count: 1
+			path: src/V2/BuyControl.php
+
+		-
+			message: '#^Method SJRoyd\\JPK\\VAT\\V2\\BuyControl\:\:setTax\(\) should return SJRoyd\\JPK\\VAT\\Helper\\BuyControl but returns \$this\(SJRoyd\\JPK\\VAT\\V2\\BuyControl\)\.$#'
+			identifier: return.type
+			count: 1
+			path: src/V2/BuyControl.php
+
+		-
+			message: '#^Access to an undefined property SJRoyd\\JPK\\VAT\\V2\\BuyRow\:\:\$address\.$#'
+			identifier: property.notFound
+			count: 4
+			path: src/V2/BuyRow.php
+
+		-
+			message: '#^Cannot access offset 0 on float\.$#'
+			identifier: offsetAccess.nonOffsetAccessible
+			count: 1
+			path: src/V2/BuyRow.php
+
+		-
+			message: '#^Method SJRoyd\\JPK\\VAT\\V2\\BuyRow\:\:__call\(\) has invalid return type SJRoyd\\JPK\\VAT\\Helper\\SellRow\.$#'
+			identifier: return.trait
+			count: 1
+			path: src/V2/BuyRow.php
+
+		-
+			message: '#^Method SJRoyd\\JPK\\VAT\\V2\\BuyRow\:\:__call\(\) should return SJRoyd\\JPK\\VAT\\Helper\\SellRow but return statement is missing\.$#'
+			identifier: return.missing
+			count: 1
+			path: src/V2/BuyRow.php
+
+		-
+			message: '#^Method SJRoyd\\JPK\\VAT\\V2\\BuyRow\:\:__call\(\) should return SJRoyd\\JPK\\VAT\\Helper\\SellRow but returns \$this\(SJRoyd\\JPK\\VAT\\V2\\BuyRow\)\.$#'
+			identifier: return.type
+			count: 2
+			path: src/V2/BuyRow.php
+
+		-
+			message: '#^Method SJRoyd\\JPK\\VAT\\V2\\BuyRow\:\:setContractorAddress\(\) has invalid return type SJRoyd\\JPK\\VAT\\Helper\\SellRow\.$#'
+			identifier: return.trait
+			count: 1
+			path: src/V2/BuyRow.php
+
+		-
+			message: '#^Method SJRoyd\\JPK\\VAT\\V2\\BuyRow\:\:setContractorAddress\(\) should return SJRoyd\\JPK\\VAT\\Helper\\SellRow but returns \$this\(SJRoyd\\JPK\\VAT\\V2\\BuyRow\)\.$#'
+			identifier: return.type
+			count: 1
+			path: src/V2/BuyRow.php
+
+		-
+			message: '#^Method SJRoyd\\JPK\\VAT\\V2\\BuyRow\:\:setContractorId\(\) has invalid return type SJRoyd\\JPK\\VAT\\Helper\\SellRow\.$#'
+			identifier: return.trait
+			count: 1
+			path: src/V2/BuyRow.php
+
+		-
+			message: '#^Method SJRoyd\\JPK\\VAT\\V2\\BuyRow\:\:setContractorId\(\) should return SJRoyd\\JPK\\VAT\\Helper\\SellRow but returns \$this\(SJRoyd\\JPK\\VAT\\V2\\BuyRow\)\.$#'
+			identifier: return.type
+			count: 1
+			path: src/V2/BuyRow.php
+
+		-
+			message: '#^Method SJRoyd\\JPK\\VAT\\V2\\BuyRow\:\:setContractorName\(\) has invalid return type SJRoyd\\JPK\\VAT\\Helper\\SellRow\.$#'
+			identifier: return.trait
+			count: 1
+			path: src/V2/BuyRow.php
+
+		-
+			message: '#^Method SJRoyd\\JPK\\VAT\\V2\\BuyRow\:\:setContractorName\(\) should return SJRoyd\\JPK\\VAT\\Helper\\SellRow but returns \$this\(SJRoyd\\JPK\\VAT\\V2\\BuyRow\)\.$#'
+			identifier: return.type
+			count: 1
+			path: src/V2/BuyRow.php
+
+		-
+			message: '#^Method SJRoyd\\JPK\\VAT\\V2\\BuyRow\:\:setId\(\) has invalid return type SJRoyd\\JPK\\VAT\\Helper\\SellRow\.$#'
+			identifier: return.trait
+			count: 1
+			path: src/V2/BuyRow.php
+
+		-
+			message: '#^Method SJRoyd\\JPK\\VAT\\V2\\BuyRow\:\:setId\(\) should return SJRoyd\\JPK\\VAT\\Helper\\SellRow but returns \$this\(SJRoyd\\JPK\\VAT\\V2\\BuyRow\)\.$#'
+			identifier: return.type
+			count: 1
+			path: src/V2/BuyRow.php
+
+		-
+			message: '#^PHPDoc tag @return with type SJRoyd\\JPK\\VAT\\V2\\BuyRow is not subtype of native type static\(SJRoyd\\JPK\\VAT\\V2\\BuyRow\)\.$#'
+			identifier: return.phpDocType
+			count: 6
+			path: src/V2/BuyRow.php
+
+		-
+			message: '#^PHPDoc tag @return with type SJRoyd\\JPK\\VAT\\V2\\SellRow is incompatible with native type static\(SJRoyd\\JPK\\VAT\\V2\\BuyRow\)\.$#'
+			identifier: return.phpDocType
+			count: 2
+			path: src/V2/BuyRow.php
+
+		-
+			message: '#^PHPDoc tag @throws with type SJRoyd\\JPK\\VAT\\Helper\\InvalidArgumentException is not subtype of Throwable$#'
+			identifier: throws.notThrowable
+			count: 1
+			path: src/V2/BuyRow.php
+
+		-
+			message: '#^PHPDoc tag @return with type SJRoyd\\JPK\\VAT\\V2\\CompanyIdentity is not subtype of native type static\(SJRoyd\\JPK\\VAT\\V2\\CompanyIdentity\)\.$#'
+			identifier: return.phpDocType
+			count: 2
+			path: src/V2/CompanyIdentity.php
+
+		-
+			message: '#^Call to method format\(\) on an unknown class SJRoyd\\JPK\\VAT\\V2\\DateTime\.$#'
+			identifier: class.notFound
+			count: 3
+			path: src/V2/Header.php
+
+		-
+			message: '#^PHPDoc tag @return with type SJRoyd\\JPK\\VAT\\V2\\Header is not subtype of native type static\(SJRoyd\\JPK\\VAT\\V2\\Header\)\.$#'
+			identifier: return.phpDocType
+			count: 2
+			path: src/V2/Header.php
+
+		-
+			message: '#^Property SJRoyd\\JPK\\VAT\\V2\\Header\:\:\$date \(SJRoyd\\JPK\\VAT\\V2\\DateTime\) does not accept DateTime\.$#'
+			identifier: assign.propertyType
+			count: 2
+			path: src/V2/Header.php
+
+		-
+			message: '#^Property SJRoyd\\JPK\\VAT\\V2\\Header\:\:\$date has unknown class SJRoyd\\JPK\\VAT\\V2\\DateTime as its type\.$#'
+			identifier: class.notFound
+			count: 1
+			path: src/V2/Header.php
+
+		-
+			message: '#^PHPDoc tag @return with type SJRoyd\\JPK\\VAT\\V2\\JPK is not subtype of native type static\(SJRoyd\\JPK\\VAT\\V2\\JPK\)\.$#'
+			identifier: return.phpDocType
+			count: 4
+			path: src/V2/JPK.php
+
+		-
+			message: '#^Method SJRoyd\\JPK\\VAT\\V2\\SellControl\:\:addCount\(\) has invalid return type SJRoyd\\JPK\\VAT\\Helper\\BuyControl\.$#'
+			identifier: class.notFound
+			count: 1
+			path: src/V2/SellControl.php
+
+		-
+			message: '#^Method SJRoyd\\JPK\\VAT\\V2\\SellControl\:\:addCount\(\) should return SJRoyd\\JPK\\VAT\\Helper\\BuyControl but returns \$this\(SJRoyd\\JPK\\VAT\\V2\\SellControl\)\.$#'
+			identifier: return.type
+			count: 1
+			path: src/V2/SellControl.php
+
+		-
+			message: '#^Method SJRoyd\\JPK\\VAT\\V2\\SellControl\:\:addTax\(\) has invalid return type SJRoyd\\JPK\\VAT\\Helper\\BuyControl\.$#'
+			identifier: class.notFound
+			count: 1
+			path: src/V2/SellControl.php
+
+		-
+			message: '#^Method SJRoyd\\JPK\\VAT\\V2\\SellControl\:\:addTax\(\) should return SJRoyd\\JPK\\VAT\\Helper\\BuyControl but returns \$this\(SJRoyd\\JPK\\VAT\\V2\\SellControl\)\.$#'
+			identifier: return.type
+			count: 1
+			path: src/V2/SellControl.php
+
+		-
+			message: '#^Method SJRoyd\\JPK\\VAT\\V2\\SellControl\:\:setCount\(\) has invalid return type SJRoyd\\JPK\\VAT\\Helper\\BuyControl\.$#'
+			identifier: class.notFound
+			count: 1
+			path: src/V2/SellControl.php
+
+		-
+			message: '#^Method SJRoyd\\JPK\\VAT\\V2\\SellControl\:\:setCount\(\) should return SJRoyd\\JPK\\VAT\\Helper\\BuyControl but returns \$this\(SJRoyd\\JPK\\VAT\\V2\\SellControl\)\.$#'
+			identifier: return.type
+			count: 1
+			path: src/V2/SellControl.php
+
+		-
+			message: '#^Method SJRoyd\\JPK\\VAT\\V2\\SellControl\:\:setTax\(\) has invalid return type SJRoyd\\JPK\\VAT\\Helper\\BuyControl\.$#'
+			identifier: class.notFound
+			count: 1
+			path: src/V2/SellControl.php
+
+		-
+			message: '#^Method SJRoyd\\JPK\\VAT\\V2\\SellControl\:\:setTax\(\) should return SJRoyd\\JPK\\VAT\\Helper\\BuyControl but returns \$this\(SJRoyd\\JPK\\VAT\\V2\\SellControl\)\.$#'
+			identifier: return.type
+			count: 1
+			path: src/V2/SellControl.php
+
+		-
+			message: '#^Call to an undefined method SJRoyd\\JPK\\VAT\\V2\\SellRow\:\:getK23\(\)\.$#'
+			identifier: method.notFound
+			count: 2
+			path: src/V2/SellRow.php
+
+		-
+			message: '#^Cannot access offset 0 on float\.$#'
+			identifier: offsetAccess.nonOffsetAccessible
+			count: 1
+			path: src/V2/SellRow.php
+
+		-
+			message: '#^Method SJRoyd\\JPK\\VAT\\V2\\SellRow\:\:__call\(\) has invalid return type SJRoyd\\JPK\\VAT\\Helper\\SellRow\.$#'
+			identifier: return.trait
+			count: 1
+			path: src/V2/SellRow.php
+
+		-
+			message: '#^Method SJRoyd\\JPK\\VAT\\V2\\SellRow\:\:__call\(\) should return SJRoyd\\JPK\\VAT\\Helper\\SellRow but return statement is missing\.$#'
+			identifier: return.missing
+			count: 1
+			path: src/V2/SellRow.php
+
+		-
+			message: '#^Method SJRoyd\\JPK\\VAT\\V2\\SellRow\:\:__call\(\) should return SJRoyd\\JPK\\VAT\\Helper\\SellRow but returns \$this\(SJRoyd\\JPK\\VAT\\V2\\SellRow\)\.$#'
+			identifier: return.type
+			count: 2
+			path: src/V2/SellRow.php
+
+		-
+			message: '#^Method SJRoyd\\JPK\\VAT\\V2\\SellRow\:\:setContractorAddress\(\) has invalid return type SJRoyd\\JPK\\VAT\\Helper\\SellRow\.$#'
+			identifier: return.trait
+			count: 1
+			path: src/V2/SellRow.php
+
+		-
+			message: '#^Method SJRoyd\\JPK\\VAT\\V2\\SellRow\:\:setContractorAddress\(\) should return SJRoyd\\JPK\\VAT\\Helper\\SellRow but returns \$this\(SJRoyd\\JPK\\VAT\\V2\\SellRow\)\.$#'
+			identifier: return.type
+			count: 1
+			path: src/V2/SellRow.php
+
+		-
+			message: '#^Method SJRoyd\\JPK\\VAT\\V2\\SellRow\:\:setContractorId\(\) has invalid return type SJRoyd\\JPK\\VAT\\Helper\\SellRow\.$#'
+			identifier: return.trait
+			count: 1
+			path: src/V2/SellRow.php
+
+		-
+			message: '#^Method SJRoyd\\JPK\\VAT\\V2\\SellRow\:\:setContractorId\(\) should return SJRoyd\\JPK\\VAT\\Helper\\SellRow but returns \$this\(SJRoyd\\JPK\\VAT\\V2\\SellRow\)\.$#'
+			identifier: return.type
+			count: 1
+			path: src/V2/SellRow.php
+
+		-
+			message: '#^Method SJRoyd\\JPK\\VAT\\V2\\SellRow\:\:setContractorName\(\) has invalid return type SJRoyd\\JPK\\VAT\\Helper\\SellRow\.$#'
+			identifier: return.trait
+			count: 1
+			path: src/V2/SellRow.php
+
+		-
+			message: '#^Method SJRoyd\\JPK\\VAT\\V2\\SellRow\:\:setContractorName\(\) should return SJRoyd\\JPK\\VAT\\Helper\\SellRow but returns \$this\(SJRoyd\\JPK\\VAT\\V2\\SellRow\)\.$#'
+			identifier: return.type
+			count: 1
+			path: src/V2/SellRow.php
+
+		-
+			message: '#^Method SJRoyd\\JPK\\VAT\\V2\\SellRow\:\:setId\(\) has invalid return type SJRoyd\\JPK\\VAT\\Helper\\SellRow\.$#'
+			identifier: return.trait
+			count: 1
+			path: src/V2/SellRow.php
+
+		-
+			message: '#^Method SJRoyd\\JPK\\VAT\\V2\\SellRow\:\:setId\(\) should return SJRoyd\\JPK\\VAT\\Helper\\SellRow but returns \$this\(SJRoyd\\JPK\\VAT\\V2\\SellRow\)\.$#'
+			identifier: return.type
+			count: 1
+			path: src/V2/SellRow.php
+
+		-
+			message: '#^PHPDoc tag @method has invalid value \(float getK203\)\)\: Unexpected token "\)", expected ''\('' at offset 954 on line 29$#'
+			identifier: phpDoc.parseError
+			count: 1
+			path: src/V2/SellRow.php
+
+		-
+			message: '#^PHPDoc tag @return with type SJRoyd\\JPK\\VAT\\V2\\SellRow is not subtype of native type static\(SJRoyd\\JPK\\VAT\\V2\\SellRow\)\.$#'
+			identifier: return.phpDocType
+			count: 2
+			path: src/V2/SellRow.php
+
+		-
+			message: '#^PHPDoc tag @throws with type SJRoyd\\JPK\\VAT\\Helper\\InvalidArgumentException is not subtype of Throwable$#'
+			identifier: throws.notThrowable
+			count: 1
+			path: src/V2/SellRow.php
+
+		-
+			message: '#^Parameter \#1 \$value of method SJRoyd\\JPK\\VAT\\V2\\SellRow\:\:setK17\(\) expects float, SJRoyd\\JPK\\VAT\\V2\\type given\.$#'
+			identifier: argument.type
+			count: 1
+			path: src/V2/SellRow.php
+
+		-
+			message: '#^Parameter \#1 \$value of method SJRoyd\\JPK\\VAT\\V2\\SellRow\:\:setK18\(\) expects float, SJRoyd\\JPK\\VAT\\V2\\type given\.$#'
+			identifier: argument.type
+			count: 1
+			path: src/V2/SellRow.php
+
+		-
+			message: '#^Parameter \$net of method SJRoyd\\JPK\\VAT\\V2\\SellRow\:\:setTaxB\(\) has invalid type SJRoyd\\JPK\\VAT\\V2\\type\.$#'
+			identifier: class.notFound
+			count: 1
+			path: src/V2/SellRow.php
+
+		-
+			message: '#^Parameter \$tax of method SJRoyd\\JPK\\VAT\\V2\\SellRow\:\:setTaxB\(\) has invalid type SJRoyd\\JPK\\VAT\\V2\\type\.$#'
+			identifier: class.notFound
+			count: 1
+			path: src/V2/SellRow.php
+
+		-
+			message: '#^Method SJRoyd\\JPK\\VAT\\V3\\BuyControl\:\:addCount\(\) has invalid return type SJRoyd\\JPK\\VAT\\Helper\\BuyControl\.$#'
+			identifier: class.notFound
+			count: 1
+			path: src/V3/BuyControl.php
+
+		-
+			message: '#^Method SJRoyd\\JPK\\VAT\\V3\\BuyControl\:\:addCount\(\) should return SJRoyd\\JPK\\VAT\\Helper\\BuyControl but returns \$this\(SJRoyd\\JPK\\VAT\\V3\\BuyControl\)\.$#'
+			identifier: return.type
+			count: 1
+			path: src/V3/BuyControl.php
+
+		-
+			message: '#^Method SJRoyd\\JPK\\VAT\\V3\\BuyControl\:\:addTax\(\) has invalid return type SJRoyd\\JPK\\VAT\\Helper\\BuyControl\.$#'
+			identifier: class.notFound
+			count: 1
+			path: src/V3/BuyControl.php
+
+		-
+			message: '#^Method SJRoyd\\JPK\\VAT\\V3\\BuyControl\:\:addTax\(\) should return SJRoyd\\JPK\\VAT\\Helper\\BuyControl but returns \$this\(SJRoyd\\JPK\\VAT\\V3\\BuyControl\)\.$#'
+			identifier: return.type
+			count: 1
+			path: src/V3/BuyControl.php
+
+		-
+			message: '#^Method SJRoyd\\JPK\\VAT\\V3\\BuyControl\:\:setCount\(\) has invalid return type SJRoyd\\JPK\\VAT\\Helper\\BuyControl\.$#'
+			identifier: class.notFound
+			count: 1
+			path: src/V3/BuyControl.php
+
+		-
+			message: '#^Method SJRoyd\\JPK\\VAT\\V3\\BuyControl\:\:setCount\(\) should return SJRoyd\\JPK\\VAT\\Helper\\BuyControl but returns \$this\(SJRoyd\\JPK\\VAT\\V3\\BuyControl\)\.$#'
+			identifier: return.type
+			count: 1
+			path: src/V3/BuyControl.php
+
+		-
+			message: '#^Method SJRoyd\\JPK\\VAT\\V3\\BuyControl\:\:setTax\(\) has invalid return type SJRoyd\\JPK\\VAT\\Helper\\BuyControl\.$#'
+			identifier: class.notFound
+			count: 1
+			path: src/V3/BuyControl.php
+
+		-
+			message: '#^Method SJRoyd\\JPK\\VAT\\V3\\BuyControl\:\:setTax\(\) should return SJRoyd\\JPK\\VAT\\Helper\\BuyControl but returns \$this\(SJRoyd\\JPK\\VAT\\V3\\BuyControl\)\.$#'
+			identifier: return.type
+			count: 1
+			path: src/V3/BuyControl.php
+
+		-
+			message: '#^Access to an undefined property SJRoyd\\JPK\\VAT\\V3\\BuyRow\:\:\$address\.$#'
+			identifier: property.notFound
+			count: 4
+			path: src/V3/BuyRow.php
+
+		-
+			message: '#^Cannot access offset 0 on float\.$#'
+			identifier: offsetAccess.nonOffsetAccessible
+			count: 1
+			path: src/V3/BuyRow.php
+
+		-
+			message: '#^Method SJRoyd\\JPK\\VAT\\V3\\BuyRow\:\:__call\(\) has invalid return type SJRoyd\\JPK\\VAT\\Helper\\SellRow\.$#'
+			identifier: return.trait
+			count: 1
+			path: src/V3/BuyRow.php
+
+		-
+			message: '#^Method SJRoyd\\JPK\\VAT\\V3\\BuyRow\:\:__call\(\) should return SJRoyd\\JPK\\VAT\\Helper\\SellRow but return statement is missing\.$#'
+			identifier: return.missing
+			count: 1
+			path: src/V3/BuyRow.php
+
+		-
+			message: '#^Method SJRoyd\\JPK\\VAT\\V3\\BuyRow\:\:__call\(\) should return SJRoyd\\JPK\\VAT\\Helper\\SellRow but returns \$this\(SJRoyd\\JPK\\VAT\\V3\\BuyRow\)\.$#'
+			identifier: return.type
+			count: 2
+			path: src/V3/BuyRow.php
+
+		-
+			message: '#^Method SJRoyd\\JPK\\VAT\\V3\\BuyRow\:\:setContractorAddress\(\) has invalid return type SJRoyd\\JPK\\VAT\\Helper\\SellRow\.$#'
+			identifier: return.trait
+			count: 1
+			path: src/V3/BuyRow.php
+
+		-
+			message: '#^Method SJRoyd\\JPK\\VAT\\V3\\BuyRow\:\:setContractorAddress\(\) should return SJRoyd\\JPK\\VAT\\Helper\\SellRow but returns \$this\(SJRoyd\\JPK\\VAT\\V3\\BuyRow\)\.$#'
+			identifier: return.type
+			count: 1
+			path: src/V3/BuyRow.php
+
+		-
+			message: '#^Method SJRoyd\\JPK\\VAT\\V3\\BuyRow\:\:setContractorId\(\) has invalid return type SJRoyd\\JPK\\VAT\\Helper\\SellRow\.$#'
+			identifier: return.trait
+			count: 1
+			path: src/V3/BuyRow.php
+
+		-
+			message: '#^Method SJRoyd\\JPK\\VAT\\V3\\BuyRow\:\:setContractorId\(\) should return SJRoyd\\JPK\\VAT\\Helper\\SellRow but returns \$this\(SJRoyd\\JPK\\VAT\\V3\\BuyRow\)\.$#'
+			identifier: return.type
+			count: 1
+			path: src/V3/BuyRow.php
+
+		-
+			message: '#^Method SJRoyd\\JPK\\VAT\\V3\\BuyRow\:\:setContractorName\(\) has invalid return type SJRoyd\\JPK\\VAT\\Helper\\SellRow\.$#'
+			identifier: return.trait
+			count: 1
+			path: src/V3/BuyRow.php
+
+		-
+			message: '#^Method SJRoyd\\JPK\\VAT\\V3\\BuyRow\:\:setContractorName\(\) should return SJRoyd\\JPK\\VAT\\Helper\\SellRow but returns \$this\(SJRoyd\\JPK\\VAT\\V3\\BuyRow\)\.$#'
+			identifier: return.type
+			count: 1
+			path: src/V3/BuyRow.php
+
+		-
+			message: '#^Method SJRoyd\\JPK\\VAT\\V3\\BuyRow\:\:setId\(\) has invalid return type SJRoyd\\JPK\\VAT\\Helper\\SellRow\.$#'
+			identifier: return.trait
+			count: 1
+			path: src/V3/BuyRow.php
+
+		-
+			message: '#^Method SJRoyd\\JPK\\VAT\\V3\\BuyRow\:\:setId\(\) should return SJRoyd\\JPK\\VAT\\Helper\\SellRow but returns \$this\(SJRoyd\\JPK\\VAT\\V3\\BuyRow\)\.$#'
+			identifier: return.type
+			count: 1
+			path: src/V3/BuyRow.php
+
+		-
+			message: '#^PHPDoc tag @return with type SJRoyd\\JPK\\VAT\\V3\\BuyRow is not subtype of native type static\(SJRoyd\\JPK\\VAT\\V3\\BuyRow\)\.$#'
+			identifier: return.phpDocType
+			count: 6
+			path: src/V3/BuyRow.php
+
+		-
+			message: '#^PHPDoc tag @return with type SJRoyd\\JPK\\VAT\\V3\\SellRow is incompatible with native type static\(SJRoyd\\JPK\\VAT\\V3\\BuyRow\)\.$#'
+			identifier: return.phpDocType
+			count: 2
+			path: src/V3/BuyRow.php
+
+		-
+			message: '#^PHPDoc tag @throws with type SJRoyd\\JPK\\VAT\\Helper\\InvalidArgumentException is not subtype of Throwable$#'
+			identifier: throws.notThrowable
+			count: 1
+			path: src/V3/BuyRow.php
+
+		-
+			message: '#^PHPDoc tag @return with type SJRoyd\\JPK\\VAT\\V3\\Company is not subtype of native type static\(SJRoyd\\JPK\\VAT\\V3\\Company\)\.$#'
+			identifier: return.phpDocType
+			count: 3
+			path: src/V3/Company.php
+
+		-
+			message: '#^PHPDoc tag @return with type SJRoyd\\JPK\\VAT\\V3\\Header is not subtype of native type static\(SJRoyd\\JPK\\VAT\\V3\\Header\)\.$#'
+			identifier: return.phpDocType
+			count: 2
+			path: src/V3/Header.php
+
+		-
+			message: '#^Method SJRoyd\\JPK\\VAT\\V3\\SellControl\:\:addCount\(\) has invalid return type SJRoyd\\JPK\\VAT\\Helper\\BuyControl\.$#'
+			identifier: class.notFound
+			count: 1
+			path: src/V3/SellControl.php
+
+		-
+			message: '#^Method SJRoyd\\JPK\\VAT\\V3\\SellControl\:\:addCount\(\) should return SJRoyd\\JPK\\VAT\\Helper\\BuyControl but returns \$this\(SJRoyd\\JPK\\VAT\\V3\\SellControl\)\.$#'
+			identifier: return.type
+			count: 1
+			path: src/V3/SellControl.php
+
+		-
+			message: '#^Method SJRoyd\\JPK\\VAT\\V3\\SellControl\:\:addTax\(\) has invalid return type SJRoyd\\JPK\\VAT\\Helper\\BuyControl\.$#'
+			identifier: class.notFound
+			count: 1
+			path: src/V3/SellControl.php
+
+		-
+			message: '#^Method SJRoyd\\JPK\\VAT\\V3\\SellControl\:\:addTax\(\) should return SJRoyd\\JPK\\VAT\\Helper\\BuyControl but returns \$this\(SJRoyd\\JPK\\VAT\\V3\\SellControl\)\.$#'
+			identifier: return.type
+			count: 1
+			path: src/V3/SellControl.php
+
+		-
+			message: '#^Method SJRoyd\\JPK\\VAT\\V3\\SellControl\:\:setCount\(\) has invalid return type SJRoyd\\JPK\\VAT\\Helper\\BuyControl\.$#'
+			identifier: class.notFound
+			count: 1
+			path: src/V3/SellControl.php
+
+		-
+			message: '#^Method SJRoyd\\JPK\\VAT\\V3\\SellControl\:\:setCount\(\) should return SJRoyd\\JPK\\VAT\\Helper\\BuyControl but returns \$this\(SJRoyd\\JPK\\VAT\\V3\\SellControl\)\.$#'
+			identifier: return.type
+			count: 1
+			path: src/V3/SellControl.php
+
+		-
+			message: '#^Method SJRoyd\\JPK\\VAT\\V3\\SellControl\:\:setTax\(\) has invalid return type SJRoyd\\JPK\\VAT\\Helper\\BuyControl\.$#'
+			identifier: class.notFound
+			count: 1
+			path: src/V3/SellControl.php
+
+		-
+			message: '#^Method SJRoyd\\JPK\\VAT\\V3\\SellControl\:\:setTax\(\) should return SJRoyd\\JPK\\VAT\\Helper\\BuyControl but returns \$this\(SJRoyd\\JPK\\VAT\\V3\\SellControl\)\.$#'
+			identifier: return.type
+			count: 1
+			path: src/V3/SellControl.php
+
+		-
+			message: '#^Cannot access offset 0 on float\.$#'
+			identifier: offsetAccess.nonOffsetAccessible
+			count: 1
+			path: src/V3/SellRow.php
+
+		-
+			message: '#^Method SJRoyd\\JPK\\VAT\\V3\\SellRow\:\:__call\(\) has invalid return type SJRoyd\\JPK\\VAT\\Helper\\SellRow\.$#'
+			identifier: return.trait
+			count: 1
+			path: src/V3/SellRow.php
+
+		-
+			message: '#^Method SJRoyd\\JPK\\VAT\\V3\\SellRow\:\:__call\(\) should return SJRoyd\\JPK\\VAT\\Helper\\SellRow but return statement is missing\.$#'
+			identifier: return.missing
+			count: 1
+			path: src/V3/SellRow.php
+
+		-
+			message: '#^Method SJRoyd\\JPK\\VAT\\V3\\SellRow\:\:__call\(\) should return SJRoyd\\JPK\\VAT\\Helper\\SellRow but returns \$this\(SJRoyd\\JPK\\VAT\\V3\\SellRow\)\.$#'
+			identifier: return.type
+			count: 2
+			path: src/V3/SellRow.php
+
+		-
+			message: '#^Method SJRoyd\\JPK\\VAT\\V3\\SellRow\:\:setContractorAddress\(\) has invalid return type SJRoyd\\JPK\\VAT\\Helper\\SellRow\.$#'
+			identifier: return.trait
+			count: 1
+			path: src/V3/SellRow.php
+
+		-
+			message: '#^Method SJRoyd\\JPK\\VAT\\V3\\SellRow\:\:setContractorAddress\(\) should return SJRoyd\\JPK\\VAT\\Helper\\SellRow but returns \$this\(SJRoyd\\JPK\\VAT\\V3\\SellRow\)\.$#'
+			identifier: return.type
+			count: 1
+			path: src/V3/SellRow.php
+
+		-
+			message: '#^Method SJRoyd\\JPK\\VAT\\V3\\SellRow\:\:setContractorId\(\) has invalid return type SJRoyd\\JPK\\VAT\\Helper\\SellRow\.$#'
+			identifier: return.trait
+			count: 1
+			path: src/V3/SellRow.php
+
+		-
+			message: '#^Method SJRoyd\\JPK\\VAT\\V3\\SellRow\:\:setContractorId\(\) should return SJRoyd\\JPK\\VAT\\Helper\\SellRow but returns \$this\(SJRoyd\\JPK\\VAT\\V3\\SellRow\)\.$#'
+			identifier: return.type
+			count: 1
+			path: src/V3/SellRow.php
+
+		-
+			message: '#^Method SJRoyd\\JPK\\VAT\\V3\\SellRow\:\:setContractorName\(\) has invalid return type SJRoyd\\JPK\\VAT\\Helper\\SellRow\.$#'
+			identifier: return.trait
+			count: 1
+			path: src/V3/SellRow.php
+
+		-
+			message: '#^Method SJRoyd\\JPK\\VAT\\V3\\SellRow\:\:setContractorName\(\) should return SJRoyd\\JPK\\VAT\\Helper\\SellRow but returns \$this\(SJRoyd\\JPK\\VAT\\V3\\SellRow\)\.$#'
+			identifier: return.type
+			count: 1
+			path: src/V3/SellRow.php
+
+		-
+			message: '#^Method SJRoyd\\JPK\\VAT\\V3\\SellRow\:\:setId\(\) has invalid return type SJRoyd\\JPK\\VAT\\Helper\\SellRow\.$#'
+			identifier: return.trait
+			count: 1
+			path: src/V3/SellRow.php
+
+		-
+			message: '#^Method SJRoyd\\JPK\\VAT\\V3\\SellRow\:\:setId\(\) should return SJRoyd\\JPK\\VAT\\Helper\\SellRow but returns \$this\(SJRoyd\\JPK\\VAT\\V3\\SellRow\)\.$#'
+			identifier: return.type
+			count: 1
+			path: src/V3/SellRow.php
+
+		-
+			message: '#^PHPDoc tag @return with type SJRoyd\\JPK\\VAT\\V3\\SellRow is not subtype of native type static\(SJRoyd\\JPK\\VAT\\V3\\SellRow\)\.$#'
+			identifier: return.phpDocType
+			count: 3
+			path: src/V3/SellRow.php
+
+		-
+			message: '#^PHPDoc tag @throws with type SJRoyd\\JPK\\VAT\\Helper\\InvalidArgumentException is not subtype of Throwable$#'
+			identifier: throws.notThrowable
+			count: 1
+			path: src/V3/SellRow.php
+
+		-
+			message: '#^Parameter \#1 \$value of method SJRoyd\\JPK\\VAT\\V3\\SellRow\:\:setK17\(\) expects float, SJRoyd\\JPK\\VAT\\V3\\type given\.$#'
+			identifier: argument.type
+			count: 1
+			path: src/V3/SellRow.php
+
+		-
+			message: '#^Parameter \#1 \$value of method SJRoyd\\JPK\\VAT\\V3\\SellRow\:\:setK18\(\) expects float, SJRoyd\\JPK\\VAT\\V3\\type given\.$#'
+			identifier: argument.type
+			count: 1
+			path: src/V3/SellRow.php
+
+		-
+			message: '#^Parameter \$net of method SJRoyd\\JPK\\VAT\\V3\\SellRow\:\:setTaxB\(\) has invalid type SJRoyd\\JPK\\VAT\\V3\\type\.$#'
+			identifier: class.notFound
+			count: 1
+			path: src/V3/SellRow.php
+
+		-
+			message: '#^Parameter \$tax of method SJRoyd\\JPK\\VAT\\V3\\SellRow\:\:setTaxB\(\) has invalid type SJRoyd\\JPK\\VAT\\V3\\type\.$#'
+			identifier: class.notFound
+			count: 1
+			path: src/V3/SellRow.php
+
+		-
+			message: '#^Method SJRoyd\\JPK\\VAT\\V7M\\BuyControl\:\:addCount\(\) has invalid return type SJRoyd\\JPK\\VAT\\Helper\\BuyControl\.$#'
+			identifier: class.notFound
+			count: 1
+			path: src/V7M/BuyControl.php
+
+		-
+			message: '#^Method SJRoyd\\JPK\\VAT\\V7M\\BuyControl\:\:addCount\(\) should return SJRoyd\\JPK\\VAT\\Helper\\BuyControl but returns \$this\(SJRoyd\\JPK\\VAT\\V7M\\BuyControl\)\.$#'
+			identifier: return.type
+			count: 1
+			path: src/V7M/BuyControl.php
+
+		-
+			message: '#^Method SJRoyd\\JPK\\VAT\\V7M\\BuyControl\:\:addTax\(\) has invalid return type SJRoyd\\JPK\\VAT\\Helper\\BuyControl\.$#'
+			identifier: class.notFound
+			count: 1
+			path: src/V7M/BuyControl.php
+
+		-
+			message: '#^Method SJRoyd\\JPK\\VAT\\V7M\\BuyControl\:\:addTax\(\) should return SJRoyd\\JPK\\VAT\\Helper\\BuyControl but returns \$this\(SJRoyd\\JPK\\VAT\\V7M\\BuyControl\)\.$#'
+			identifier: return.type
+			count: 1
+			path: src/V7M/BuyControl.php
+
+		-
+			message: '#^Method SJRoyd\\JPK\\VAT\\V7M\\BuyControl\:\:setCount\(\) has invalid return type SJRoyd\\JPK\\VAT\\Helper\\BuyControl\.$#'
+			identifier: class.notFound
+			count: 1
+			path: src/V7M/BuyControl.php
+
+		-
+			message: '#^Method SJRoyd\\JPK\\VAT\\V7M\\BuyControl\:\:setCount\(\) should return SJRoyd\\JPK\\VAT\\Helper\\BuyControl but returns \$this\(SJRoyd\\JPK\\VAT\\V7M\\BuyControl\)\.$#'
+			identifier: return.type
+			count: 1
+			path: src/V7M/BuyControl.php
+
+		-
+			message: '#^Method SJRoyd\\JPK\\VAT\\V7M\\BuyControl\:\:setTax\(\) has invalid return type SJRoyd\\JPK\\VAT\\Helper\\BuyControl\.$#'
+			identifier: class.notFound
+			count: 1
+			path: src/V7M/BuyControl.php
+
+		-
+			message: '#^Method SJRoyd\\JPK\\VAT\\V7M\\BuyControl\:\:setTax\(\) should return SJRoyd\\JPK\\VAT\\Helper\\BuyControl but returns \$this\(SJRoyd\\JPK\\VAT\\V7M\\BuyControl\)\.$#'
+			identifier: return.type
+			count: 1
+			path: src/V7M/BuyControl.php
+
+		-
+			message: '#^PHPDoc tag @return with type SJRoyd\\JPK\\VAT\\V7M\\BuyRow is not subtype of native type static\(SJRoyd\\JPK\\VAT\\V7M\\BuyRow\)\.$#'
+			identifier: return.phpDocType
+			count: 7
+			path: src/V7M/BuyRow.php
+
+		-
+			message: '#^PHPDoc tag @return with type array\|null is not subtype of native type array\.$#'
+			identifier: return.phpDocType
+			count: 2
+			path: src/V7M/BuyRow.php
+
+		-
+			message: '#^Property SJRoyd\\JPK\\VAT\\V7M\\BuyRow\:\:\$ksefNumber \(string\) does not accept null\.$#'
+			identifier: assign.propertyType
+			count: 3
+			path: src/V7M/BuyRow.php
+
+		-
+			message: '#^PHPDoc tag @return with type SJRoyd\\JPK\\VAT\\V7M\\Company is not subtype of native type static\(SJRoyd\\JPK\\VAT\\V7M\\Company\)\.$#'
+			identifier: return.phpDocType
+			count: 5
+			path: src/V7M/Company.php
+
+		-
+			message: '#^Property SJRoyd\\JPK\\VAT\\V7M\\Company\:\:\$birthDate \(DateTime\) does not accept null\.$#'
+			identifier: assign.propertyType
+			count: 1
+			path: src/V7M/Company.php
+
+		-
+			message: '#^Property SJRoyd\\JPK\\VAT\\V7M\\Company\:\:\$firstName \(string\) does not accept null\.$#'
+			identifier: assign.propertyType
+			count: 1
+			path: src/V7M/Company.php
+
+		-
+			message: '#^Property SJRoyd\\JPK\\VAT\\V7M\\Company\:\:\$lastName \(string\) does not accept null\.$#'
+			identifier: assign.propertyType
+			count: 1
+			path: src/V7M/Company.php
+
+		-
+			message: '#^Property SJRoyd\\JPK\\VAT\\V7M\\Company\:\:\$name \(string\) does not accept null\.$#'
+			identifier: assign.propertyType
+			count: 1
+			path: src/V7M/Company.php
+
+		-
+			message: '#^PHPDoc tag @return with type SJRoyd\\JPK\\VAT\\V7M\\Declaration is not subtype of native type static\(SJRoyd\\JPK\\VAT\\V7M\\Declaration\)\.$#'
+			identifier: return.phpDocType
+			count: 2
+			path: src/V7M/Declaration.php
+
+		-
+			message: '#^PHPDoc tag @return with type SJRoyd\\JPK\\VAT\\V7M\\Header is not subtype of native type static\(SJRoyd\\JPK\\VAT\\V7M\\Header\)\.$#'
+			identifier: return.phpDocType
+			count: 4
+			path: src/V7M/Header.php
+
+		-
+			message: '#^Call to method setTax\(\) on an unknown class SJRoyd\\JPK\\VAT\\Helper\\BuyControl\.$#'
+			identifier: class.notFound
+			count: 2
+			path: src/V7M/JPK.php
+
+		-
+			message: '#^Method SJRoyd\\JPK\\VAT\\V7M\\SellControl\:\:addCount\(\) has invalid return type SJRoyd\\JPK\\VAT\\Helper\\BuyControl\.$#'
+			identifier: class.notFound
+			count: 1
+			path: src/V7M/SellControl.php
+
+		-
+			message: '#^Method SJRoyd\\JPK\\VAT\\V7M\\SellControl\:\:addCount\(\) should return SJRoyd\\JPK\\VAT\\Helper\\BuyControl but returns \$this\(SJRoyd\\JPK\\VAT\\V7M\\SellControl\)\.$#'
+			identifier: return.type
+			count: 1
+			path: src/V7M/SellControl.php
+
+		-
+			message: '#^Method SJRoyd\\JPK\\VAT\\V7M\\SellControl\:\:addTax\(\) has invalid return type SJRoyd\\JPK\\VAT\\Helper\\BuyControl\.$#'
+			identifier: class.notFound
+			count: 1
+			path: src/V7M/SellControl.php
+
+		-
+			message: '#^Method SJRoyd\\JPK\\VAT\\V7M\\SellControl\:\:addTax\(\) should return SJRoyd\\JPK\\VAT\\Helper\\BuyControl but returns \$this\(SJRoyd\\JPK\\VAT\\V7M\\SellControl\)\.$#'
+			identifier: return.type
+			count: 1
+			path: src/V7M/SellControl.php
+
+		-
+			message: '#^Method SJRoyd\\JPK\\VAT\\V7M\\SellControl\:\:setCount\(\) has invalid return type SJRoyd\\JPK\\VAT\\Helper\\BuyControl\.$#'
+			identifier: class.notFound
+			count: 1
+			path: src/V7M/SellControl.php
+
+		-
+			message: '#^Method SJRoyd\\JPK\\VAT\\V7M\\SellControl\:\:setCount\(\) should return SJRoyd\\JPK\\VAT\\Helper\\BuyControl but returns \$this\(SJRoyd\\JPK\\VAT\\V7M\\SellControl\)\.$#'
+			identifier: return.type
+			count: 1
+			path: src/V7M/SellControl.php
+
+		-
+			message: '#^Method SJRoyd\\JPK\\VAT\\V7M\\SellControl\:\:setTax\(\) has invalid return type SJRoyd\\JPK\\VAT\\Helper\\BuyControl\.$#'
+			identifier: class.notFound
+			count: 1
+			path: src/V7M/SellControl.php
+
+		-
+			message: '#^Method SJRoyd\\JPK\\VAT\\V7M\\SellControl\:\:setTax\(\) should return SJRoyd\\JPK\\VAT\\Helper\\BuyControl but returns \$this\(SJRoyd\\JPK\\VAT\\V7M\\SellControl\)\.$#'
+			identifier: return.type
+			count: 1
+			path: src/V7M/SellControl.php
+
+		-
+			message: '#^Method SJRoyd\\JPK\\VAT\\V7M\\SellRow\:\:setCashRegisterTaxBack\(\) should return \$this\(SJRoyd\\JPK\\VAT\\V7M\\SellRow\) but returns SJRoyd\\JPK\\VAT\\V7M\\SellRow\.$#'
+			identifier: return.type
+			count: 1
+			path: src/V7M/SellRow.php
+
+		-
+			message: '#^Method SJRoyd\\JPK\\VAT\\V7M\\SellRow\:\:setDepositTax\(\) should return \$this\(SJRoyd\\JPK\\VAT\\V7M\\SellRow\) but returns SJRoyd\\JPK\\VAT\\V7M\\SellRow\.$#'
+			identifier: return.type
+			count: 1
+			path: src/V7M/SellRow.php
+
+		-
+			message: '#^Method SJRoyd\\JPK\\VAT\\V7M\\SellRow\:\:setExport\(\) should return \$this\(SJRoyd\\JPK\\VAT\\V7M\\SellRow\) but returns SJRoyd\\JPK\\VAT\\V7M\\SellRow\.$#'
+			identifier: return.type
+			count: 1
+			path: src/V7M/SellRow.php
+
+		-
+			message: '#^Method SJRoyd\\JPK\\VAT\\V7M\\SellRow\:\:setExportUE\(\) should return \$this\(SJRoyd\\JPK\\VAT\\V7M\\SellRow\) but returns SJRoyd\\JPK\\VAT\\V7M\\SellRow\.$#'
+			identifier: return.type
+			count: 1
+			path: src/V7M/SellRow.php
+
+		-
+			message: '#^Method SJRoyd\\JPK\\VAT\\V7M\\SellRow\:\:setFuelImportUeTax\(\) should return \$this\(SJRoyd\\JPK\\VAT\\V7M\\SellRow\) but returns SJRoyd\\JPK\\VAT\\V7M\\SellRow\.$#'
+			identifier: return.type
+			count: 1
+			path: src/V7M/SellRow.php
+
+		-
+			message: '#^Method SJRoyd\\JPK\\VAT\\V7M\\SellRow\:\:setPsychicalInventoryTax\(\) should return \$this\(SJRoyd\\JPK\\VAT\\V7M\\SellRow\) but returns SJRoyd\\JPK\\VAT\\V7M\\SellRow\.$#'
+			identifier: return.type
+			count: 1
+			path: src/V7M/SellRow.php
+
+		-
+			message: '#^Method SJRoyd\\JPK\\VAT\\V7M\\SellRow\:\:setTaxExempt\(\) should return \$this\(SJRoyd\\JPK\\VAT\\V7M\\SellRow\) but returns SJRoyd\\JPK\\VAT\\V7M\\SellRow\.$#'
+			identifier: return.type
+			count: 1
+			path: src/V7M/SellRow.php
+
+		-
+			message: '#^Method SJRoyd\\JPK\\VAT\\V7M\\SellRow\:\:setTransportImportUeTaxDue\(\) should return \$this\(SJRoyd\\JPK\\VAT\\V7M\\SellRow\) but returns SJRoyd\\JPK\\VAT\\V7M\\SellRow\.$#'
+			identifier: return.type
+			count: 1
+			path: src/V7M/SellRow.php
+
+		-
+			message: '#^PHPDoc tag @return with type SJRoyd\\JPK\\VAT\\V7M\\SellRow is not subtype of native type static\(SJRoyd\\JPK\\VAT\\V7M\\SellRow\)\.$#'
+			identifier: return.phpDocType
+			count: 7
+			path: src/V7M/SellRow.php
+
+		-
+			message: '#^PHPDoc tag @return with type array\|null is not subtype of native type array\.$#'
+			identifier: return.phpDocType
+			count: 10
+			path: src/V7M/SellRow.php
+
+		-
+			message: '#^Property SJRoyd\\JPK\\VAT\\V7M\\SellRow\:\:\$ksefNumber \(string\) does not accept null\.$#'
+			identifier: assign.propertyType
+			count: 3
+			path: src/V7M/SellRow.php

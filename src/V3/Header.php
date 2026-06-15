@@ -46,7 +46,7 @@ class Header implements Helper\HeaderInterface, XmlSerializable, XmlDeserializab
      *
      * @return Header
      */
-    public function setCorrection($i)
+    public function setCorrection($i): static
     {
         $this->reason = $i;
         return $this;
@@ -76,7 +76,7 @@ class Header implements Helper\HeaderInterface, XmlSerializable, XmlDeserializab
      * @param \DateTime|string $toDate
      * @return Header
      */
-    public function setRangeDates($fromDate, $toDate)
+    public function setRangeDates($fromDate, $toDate): static
     {
         $this->dateFrom = $fromDate instanceof \DateTime ? $fromDate : new \DateTime($fromDate);
         $this->dateTo = $toDate instanceof \DateTime ? $toDate : new \DateTime($toDate);
@@ -97,7 +97,7 @@ class Header implements Helper\HeaderInterface, XmlSerializable, XmlDeserializab
      *
      * @param string $systemName
      */
-    public function setSystemName($systemName)
+    public function setSystemName($systemName): void
     {
         $this->systemName = $systemName;
     }

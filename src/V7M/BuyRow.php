@@ -96,7 +96,7 @@ class BuyRow implements XmlSerializable, XmlDeserializable
      * @param \DateTime|string $buyDate
      * @return BuyRow
      */
-    public function setBuyDate($buyDate)
+    public function setBuyDate($buyDate): static
     {
         $this->buyDate = $buyDate instanceof \DateTime
                 ? $buyDate : new \DateTime($buyDate);
@@ -116,7 +116,7 @@ class BuyRow implements XmlSerializable, XmlDeserializable
      * @param \DateTime|string $receiveDate
      * @return BuyRow
      */
-    public function setReceiveDate($receiveDate)
+    public function setReceiveDate($receiveDate): static
     {
         $this->receivedDate = $receiveDate instanceof \DateTime
                 ? $receiveDate : new \DateTime($receiveDate);
@@ -137,7 +137,7 @@ class BuyRow implements XmlSerializable, XmlDeserializable
      * @return BuyRow
      * @throws \InvalidArgumentException
      */
-    public function setDocumentType($type)
+    public function setDocumentType($type): static
     {
         if (!in_array($type, [self::DOC_MK, self::DOC_VAT_RR, self::DOC_WEW])) {
             throw new \InvalidArgumentException("Incorrect document type: {$type}");
@@ -158,7 +158,7 @@ class BuyRow implements XmlSerializable, XmlDeserializable
      * IMP - import of goods marker
      * @return BuyRow
      */
-    public function setImport()
+    public function setImport(): static
     {
         $this->import = true;
         return $this;
@@ -168,7 +168,7 @@ class BuyRow implements XmlSerializable, XmlDeserializable
      * K_40 and K_41
      * @return array|null
      */
-    public function getFixedAssets()
+    public function getFixedAssets(): array
     {
         return
             is_null($this->getK40())
@@ -185,7 +185,7 @@ class BuyRow implements XmlSerializable, XmlDeserializable
      * @param float $tax
      * @return BuyRow
      */
-    public function setFixedAssets($net, $tax)
+    public function setFixedAssets($net, $tax): static
     {
         $this->setK40($net);
         $this->setK41($tax);
@@ -196,7 +196,7 @@ class BuyRow implements XmlSerializable, XmlDeserializable
      * K_42 and K_43
      * @return array|null
      */
-    public function getOtherAssets()
+    public function getOtherAssets(): array
     {
         return
             is_null($this->getK42())
@@ -213,7 +213,7 @@ class BuyRow implements XmlSerializable, XmlDeserializable
      * @param float $tax
      * @return BuyRow
      */
-    public function setOtherAssets($net, $tax)
+    public function setOtherAssets($net, $tax): static
     {
         $this->setK42($net);
         $this->setK43($tax);
@@ -311,7 +311,7 @@ class BuyRow implements XmlSerializable, XmlDeserializable
      * @param float $value
      * @return BuyRow
      */
-    public function setMargin($value)
+    public function setMargin($value): static
     {
         $this->margin = $value;
         return $this;

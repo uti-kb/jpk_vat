@@ -41,7 +41,7 @@ class Company implements XmlSerializable, XmlDeserializable
      * @param string $nip
      * @return Company
      */
-    public function setNip($nip)
+    public function setNip($nip): static
     {
         $this->nip = $nip;
         return $this;
@@ -61,7 +61,7 @@ class Company implements XmlSerializable, XmlDeserializable
      * @param string $name
      * @return Company
      */
-    public function setName($name)
+    public function setName($name): static
     {
         $this->name = $name;
         return $this;
@@ -78,7 +78,7 @@ class Company implements XmlSerializable, XmlDeserializable
      * @param string $email
      * @return Company
      */
-    public function setEmail($email) {
+    public function setEmail($email): static {
         $this->email = $email;
         return $this;
     }

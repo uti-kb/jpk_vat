@@ -73,7 +73,7 @@ class BuyRow implements XmlSerializable, XmlDeserializable
      * @param \DateTime|string $sellDate
      * @return SellRow
      */
-    public function setReceiveDate($sellDate)
+    public function setReceiveDate($sellDate): static
     {
         $this->receivedDate = $sellDate instanceof \DateTime
                 ? $sellDate : new \DateTime($sellDate);
@@ -83,7 +83,7 @@ class BuyRow implements XmlSerializable, XmlDeserializable
     /**
      * @return array
      */
-    public function getFixedAssets()
+    public function getFixedAssets(): array
     {
         return
             is_null($this->getK42())
@@ -99,7 +99,7 @@ class BuyRow implements XmlSerializable, XmlDeserializable
      * @param float $taxToDeduction
      * @return BuyRow
      */
-    public function setFixedAssets($nettoToDeduction, $taxToDeduction)
+    public function setFixedAssets($nettoToDeduction, $taxToDeduction): static
     {
         $this->setK42($nettoToDeduction);
         $this->setK43($taxToDeduction);
@@ -109,7 +109,7 @@ class BuyRow implements XmlSerializable, XmlDeserializable
     /**
      * @return array
      */
-    public function getOtherAssets()
+    public function getOtherAssets(): array
     {
         return
             is_null($this->getK44())
@@ -125,7 +125,7 @@ class BuyRow implements XmlSerializable, XmlDeserializable
      * @param float $taxToDeduction
      * @return BuyRow
      */
-    public function setOtherAssets($nettoToDeduction, $taxToDeduction)
+    public function setOtherAssets($nettoToDeduction, $taxToDeduction): static
     {
         $this->setK44($nettoToDeduction);
         $this->setK45($taxToDeduction);
@@ -144,7 +144,7 @@ class BuyRow implements XmlSerializable, XmlDeserializable
      * @param float $taxToDeduction
      * @return BuyRow
      */
-    public function setFixedAssetsTaxCorrection($taxToDeduction)
+    public function setFixedAssetsTaxCorrection($taxToDeduction): static
     {
         $this->setK46($taxToDeduction);
         return $this;
@@ -162,7 +162,7 @@ class BuyRow implements XmlSerializable, XmlDeserializable
      * @param float $taxToDeduction
      * @return BuyRow
      */
-    public function setOtherAssetsTaxCorrection($taxToDeduction)
+    public function setOtherAssetsTaxCorrection($taxToDeduction): static
     {
         $this->setK47($taxToDeduction);
         return $this;
@@ -173,14 +173,14 @@ class BuyRow implements XmlSerializable, XmlDeserializable
      */
     public function getTaxCorrectionArt89bu1()
     {
-        return $this->setK48();
+        return $this->getK48();
     }
 
     /**
      * @param float $taxToDeduction
      * @return BuyRow
      */
-    public function setTaxCorrectionArt89bu1($taxToDeduction)
+    public function setTaxCorrectionArt89bu1($taxToDeduction): static
     {
         $this->setK48($taxToDeduction);
         return $this;
@@ -191,14 +191,14 @@ class BuyRow implements XmlSerializable, XmlDeserializable
      */
     public function getTaxCorrectionArt89bu4()
     {
-        return $this->setK49();
+        return $this->getK49();
     }
 
     /**
      * @param float $taxToDeduction
      * @return BuyRow
      */
-    public function setTaxCorrectionArt89bu4($taxToDeduction)
+    public function setTaxCorrectionArt89bu4($taxToDeduction): static
     {
         $this->setK49($taxToDeduction);
         return $this;
@@ -239,9 +239,7 @@ class BuyRow implements XmlSerializable, XmlDeserializable
             ]);
         }
 
-        $fields = array_filter($this->fields, function($val){
-            return $val !== null;
-        });
+        $fields = array_filter($this->fields, fn($val): bool => $val !== null);
         foreach($fields as $field => $value){
             $writer->write([
                 $field => sprintf('%.2f', $value)

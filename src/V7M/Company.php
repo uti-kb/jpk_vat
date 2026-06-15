@@ -66,7 +66,7 @@ class Company implements XmlSerializable, XmlDeserializable
      * @param string $nip
      * @return Company
      */
-    public function setNip($nip)
+    public function setNip($nip): static
     {
         $this->nip = $nip;
         return $this;
@@ -85,7 +85,7 @@ class Company implements XmlSerializable, XmlDeserializable
      * @param string $name
      * @return Company
      */
-    public function setName($name)
+    public function setName($name): static
     {
         $this->name = $name;
         $this->firstName = $this->lastName = $this->birthDate = null;
@@ -95,7 +95,7 @@ class Company implements XmlSerializable, XmlDeserializable
     /**
      * @return array|null [firstName, lastName, birthDate]
      */
-    public function getPerson()
+    public function getPerson(): ?array
     {
         return $this->firstName
             ? [$this->firstName, $this->lastName, $this->birthDate]
@@ -109,7 +109,7 @@ class Company implements XmlSerializable, XmlDeserializable
      * @param \DateTime|string $birthDate
      * @return Company
      */
-    public function setPerson($firstName, $lastName, $birthDate)
+    public function setPerson($firstName, $lastName, $birthDate): static
     {
         $this->firstName = $firstName;
         $this->lastName = $lastName;
@@ -131,7 +131,7 @@ class Company implements XmlSerializable, XmlDeserializable
      * @param string $email
      * @return Company
      */
-    public function setEmail($email)
+    public function setEmail($email): static
     {
         $this->email = $email;
         return $this;
@@ -149,7 +149,7 @@ class Company implements XmlSerializable, XmlDeserializable
      * @param string $phone
      * @return Company
      */
-    public function setPhone($phone)
+    public function setPhone($phone): static
     {
         $this->phone = $phone;
         return $this;
@@ -215,8 +215,8 @@ class Company implements XmlSerializable, XmlDeserializable
     public static function xmlDeserialize(Reader $reader)
     {
         $children = $reader->parseInnerTree([
-            Schema::TNS.'OsobaFizyczna'    => 'Sabre\Xml\Element\KeyValue',
-            Schema::TNS.'OsobaNiefizyczna' => 'Sabre\Xml\Element\KeyValue',
+            Schema::TNS.'OsobaFizyczna'    => \Sabre\Xml\Element\KeyValue::class,
+            Schema::TNS.'OsobaNiefizyczna' => \Sabre\Xml\Element\KeyValue::class,
         ]);
 
         $object = new self();

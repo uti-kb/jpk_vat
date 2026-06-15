@@ -14,15 +14,9 @@ use Sabre\Xml\XmlSerializable;
 class Company implements XmlSerializable, XmlDeserializable
 {
 
-    /**
-     * @var CompanyIdentity
-     */
-    protected $identity;
+    protected \SJRoyd\JPK\VAT\V2\CompanyIdentity $identity;
 
-    /**
-     * @var CompanyAddress
-     */
-    protected $address;
+    protected \SJRoyd\JPK\VAT\V2\CompanyAddress $address;
 
     public function __construct()
     {
@@ -61,7 +55,7 @@ class Company implements XmlSerializable, XmlDeserializable
         return $object;
     }
 
-    public function __get($name)
+    public function __get(string $name): mixed
     {
         return $this->$name;
     }

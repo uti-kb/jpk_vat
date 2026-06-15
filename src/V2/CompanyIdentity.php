@@ -35,7 +35,7 @@ class CompanyIdentity implements XmlSerializable, XmlDeserializable
      * @param string $nip
      * @return CompanyIdentity
      */
-    public function setNip($nip)
+    public function setNip($nip): static
     {
         $this->nip = $nip;
         return $this;
@@ -55,7 +55,7 @@ class CompanyIdentity implements XmlSerializable, XmlDeserializable
      * @param string $name
      * @return CompanyIdentity
      */
-    public function setName($name)
+    public function setName($name): static
     {
         $this->name = $name;
         return $this;

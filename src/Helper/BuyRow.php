@@ -8,7 +8,7 @@ trait BuyRow
     /**
      * @return null
      */
-    public function getFixedAssets()
+    public function getFixedAssets(): null
     {
         return null;
     }
@@ -26,7 +26,7 @@ trait BuyRow
     /**
      * @return null
      */
-    public function getOtherAssets()
+    public function getOtherAssets(): null
     {
         return null;
     }
@@ -44,7 +44,7 @@ trait BuyRow
     /**
      * @return null
      */
-    public function getFixedAssetsTaxCorrection()
+    public function getFixedAssetsTaxCorrection(): null
     {
         return null;
     }
@@ -61,7 +61,7 @@ trait BuyRow
     /**
      * @return null
      */
-    public function getOtherAssetsTaxCorrection()
+    public function getOtherAssetsTaxCorrection(): null
     {
         return null;
     }
@@ -78,7 +78,7 @@ trait BuyRow
     /**
      * @return null
      */
-    public function getTaxCorrectionArt89bu1()
+    public function getTaxCorrectionArt89bu1(): null
     {
         return null;
     }
@@ -95,7 +95,7 @@ trait BuyRow
     /**
      * @return null
      */
-    public function getTaxCorrectionArt89bu4()
+    public function getTaxCorrectionArt89bu4(): null
     {
         return null;
     }

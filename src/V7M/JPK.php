@@ -20,40 +20,25 @@ use Sabre\Xml\XmlSerializable;
  */
 class JPK implements XmlSerializable, XmlDeserializable
 {
-    /**
-     * @var Header
-     */
-    private $header;
+    private \SJRoyd\JPK\VAT\V7M\Header $header;
 
-    /**
-     * @var Company
-     */
-    private $company;
+    private \SJRoyd\JPK\VAT\V7M\Company $company;
 
-    /**
-     * @var Declaration
-     */
-    private $declaration;
+    private ?\SJRoyd\JPK\VAT\V7M\Declaration $declaration = null;
 
     /**
      * @var SellRow[]
      */
-    private $sellRows;
+    private ?array $sellRows = null;
 
-    /**
-     * @var SellControl
-     */
-    private $sellControl;
+    private \SJRoyd\JPK\VAT\V7M\SellControl $sellControl;
 
     /**
      * @var BuyRow[]
      */
-    private $buyRows;
+    private ?array $buyRows = null;
 
-    /**
-     * @var BuyControl
-     */
-    private $buyControl;
+    private \SJRoyd\JPK\VAT\V7M\BuyControl $buyControl;
 
     public function __construct()
     {
@@ -74,7 +59,7 @@ class JPK implements XmlSerializable, XmlDeserializable
     /**
      * @return Declaration|null
      */
-    public function getDeclaration()
+    public function getDeclaration(): ?\SJRoyd\JPK\VAT\V7M\Declaration
     {
         return $this->declaration;
     }
@@ -100,7 +85,7 @@ class JPK implements XmlSerializable, XmlDeserializable
     /**
      * @return SellRow[] $sellRows
      */
-    public function getSellRows()
+    public function getSellRows(): ?array
     {
         return $this->sellRows;
     }
@@ -136,7 +121,7 @@ class JPK implements XmlSerializable, XmlDeserializable
     /**
      * @return BuyRow[]
      */
-    public function getBuyRows()
+    public function getBuyRows(): ?array
     {
         return $this->buyRows;
     }
@@ -190,7 +175,7 @@ class JPK implements XmlSerializable, XmlDeserializable
         $this->buyControl->setCount(0)->setTax(0);
 
         $writer->write([
-            Schema::getFullNS('TNS') . 'Ewidencja' => function(Writer $writer) {
+            Schema::getFullNS('TNS') . 'Ewidencja' => function(Writer $writer): void {
                 $lp = 1;
                 foreach ((array) $this->sellRows as $row) {
                     $row->setLp($lp++);
@@ -247,7 +232,7 @@ class JPK implements XmlSerializable, XmlDeserializable
         return $jpk;
     }
 
-    public function __get($name)
+    public function __get(string $name): mixed
     {
         return $this->$name;
     }
@@ -256,7 +241,7 @@ class JPK implements XmlSerializable, XmlDeserializable
      * Generate JPK_V7M object to XML
      * @return string
      */
-    public function generate()
+    public function generate(): string
     {
         $xmlService = new Service();
         $xmlService->namespaceMap = [
@@ -264,7 +249,7 @@ class JPK implements XmlSerializable, XmlDeserializable
             Schema::getNS('ETD') => 'etd',
         ];
 
-        return $xmlService->write(Schema::getFullNS('TNS') . 'JPK', function($xmlWriter) {
+        return $xmlService->write(Schema::getFullNS('TNS') . 'JPK', function($xmlWriter): void {
             $xmlWriter->write($this);
         });
     }

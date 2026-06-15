@@ -61,7 +61,7 @@ class CompanyAddress implements XmlSerializable, XmlDeserializable
         return $this->voivodeship;
     }
 
-    public function setVoivodeship($voivodeship)
+    public function setVoivodeship($voivodeship): static
     {
         $this->voivodeship = $voivodeship;
         return $this;
@@ -72,7 +72,7 @@ class CompanyAddress implements XmlSerializable, XmlDeserializable
         return $this->country;
     }
 
-    public function setCountry($country)
+    public function setCountry($country): static
     {
         $this->country = $country;
         return $this;
@@ -83,7 +83,7 @@ class CompanyAddress implements XmlSerializable, XmlDeserializable
         return $this->community;
     }
 
-    public function setCommunity($community)
+    public function setCommunity($community): static
     {
         $this->community = $community;
         return $this;
@@ -94,7 +94,7 @@ class CompanyAddress implements XmlSerializable, XmlDeserializable
         return $this->street;
     }
 
-    public function setStreet($street)
+    public function setStreet($street): static
     {
         $this->street = $street;
         return $this;
@@ -105,7 +105,7 @@ class CompanyAddress implements XmlSerializable, XmlDeserializable
         return $this->number;
     }
 
-    public function setNumber($number)
+    public function setNumber($number): static
     {
         $this->number = $number;
         return $this;
@@ -116,7 +116,7 @@ class CompanyAddress implements XmlSerializable, XmlDeserializable
         return $this->city;
     }
 
-    public function setCity($city)
+    public function setCity($city): static
     {
         $this->city = $city;
         return $this;
@@ -127,7 +127,7 @@ class CompanyAddress implements XmlSerializable, XmlDeserializable
         return $this->postalCode;
     }
 
-    public function setPostalCode($postalCode)
+    public function setPostalCode($postalCode): static
     {
         $this->postalCode = $postalCode;
         return $this;
@@ -138,7 +138,7 @@ class CompanyAddress implements XmlSerializable, XmlDeserializable
         return $this->postal;
     }
 
-    public function setPostal($postal)
+    public function setPostal($postal): static
     {
         $this->postal = $postal;
         return $this;

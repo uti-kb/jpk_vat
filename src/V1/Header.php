@@ -45,7 +45,7 @@ class Header implements Helper\HeaderInterface, XmlSerializable, XmlDeserializab
      *
      * @return Header
      */
-    public function setCorrection()
+    public function setCorrection(): static
     {
         $this->reason = 2;
         return $this;
@@ -66,7 +66,7 @@ class Header implements Helper\HeaderInterface, XmlSerializable, XmlDeserializab
      * @param int $month
      * @return Header
      */
-    public function setRangeDates($year, $month)
+    public function setRangeDates($year, $month): static
     {
         $this->date = new \DateTime("{$year}-{$month}");
         return $this;
@@ -77,7 +77,7 @@ class Header implements Helper\HeaderInterface, XmlSerializable, XmlDeserializab
         return $this->taxOfficeCode;
     }
 
-    public function setTaxOficeCode($taxOficeCode)
+    public function setTaxOficeCode($taxOficeCode): static
     {
         $this->taxOfficeCode = $taxOficeCode;
         return $this;
