@@ -133,18 +133,6 @@ parameters:
 			path: src/V1/BuyRow.php
 
 		-
-			message: '#^Method SJRoyd\\JPK\\VAT\\V1\\BuyRow\:\:getTaxCorrectionArt89bu1\(\) should return float but returns SJRoyd\\JPK\\VAT\\V1\\SellRow\.$#'
-			identifier: return.type
-			count: 1
-			path: src/V1/BuyRow.php
-
-		-
-			message: '#^Method SJRoyd\\JPK\\VAT\\V1\\BuyRow\:\:getTaxCorrectionArt89bu4\(\) should return float but returns SJRoyd\\JPK\\VAT\\V1\\SellRow\.$#'
-			identifier: return.type
-			count: 1
-			path: src/V1/BuyRow.php
-
-		-
 			message: '#^Method SJRoyd\\JPK\\VAT\\V1\\BuyRow\:\:setContractorAddress\(\) has invalid return type SJRoyd\\JPK\\VAT\\Helper\\SellRow\.$#'
 			identifier: return.trait
 			count: 1
@@ -189,18 +177,6 @@ parameters:
 		-
 			message: '#^Method SJRoyd\\JPK\\VAT\\V1\\BuyRow\:\:setId\(\) should return SJRoyd\\JPK\\VAT\\Helper\\SellRow but returns \$this\(SJRoyd\\JPK\\VAT\\V1\\BuyRow\)\.$#'
 			identifier: return.type
-			count: 1
-			path: src/V1/BuyRow.php
-
-		-
-			message: '#^Method SJRoyd\\JPK\\VAT\\V1\\BuyRow\:\:setK48\(\) invoked with 0 parameters, 1 required\.$#'
-			identifier: arguments.count
-			count: 1
-			path: src/V1/BuyRow.php
-
-		-
-			message: '#^Method SJRoyd\\JPK\\VAT\\V1\\BuyRow\:\:setK49\(\) invoked with 0 parameters, 1 required\.$#'
-			identifier: arguments.count
 			count: 1
 			path: src/V1/BuyRow.php
 
@@ -487,18 +463,6 @@ parameters:
 			path: src/V2/BuyRow.php
 
 		-
-			message: '#^Method SJRoyd\\JPK\\VAT\\V2\\BuyRow\:\:getTaxCorrectionArt89bu1\(\) should return float but returns SJRoyd\\JPK\\VAT\\V2\\SellRow\.$#'
-			identifier: return.type
-			count: 1
-			path: src/V2/BuyRow.php
-
-		-
-			message: '#^Method SJRoyd\\JPK\\VAT\\V2\\BuyRow\:\:getTaxCorrectionArt89bu4\(\) should return float but returns SJRoyd\\JPK\\VAT\\V2\\SellRow\.$#'
-			identifier: return.type
-			count: 1
-			path: src/V2/BuyRow.php
-
-		-
 			message: '#^Method SJRoyd\\JPK\\VAT\\V2\\BuyRow\:\:setContractorAddress\(\) has invalid return type SJRoyd\\JPK\\VAT\\Helper\\SellRow\.$#'
 			identifier: return.trait
 			count: 1
@@ -543,18 +507,6 @@ parameters:
 		-
 			message: '#^Method SJRoyd\\JPK\\VAT\\V2\\BuyRow\:\:setId\(\) should return SJRoyd\\JPK\\VAT\\Helper\\SellRow but returns \$this\(SJRoyd\\JPK\\VAT\\V2\\BuyRow\)\.$#'
 			identifier: return.type
-			count: 1
-			path: src/V2/BuyRow.php
-
-		-
-			message: '#^Method SJRoyd\\JPK\\VAT\\V2\\BuyRow\:\:setK49\(\) invoked with 0 parameters, 1 required\.$#'
-			identifier: arguments.count
-			count: 1
-			path: src/V2/BuyRow.php
-
-		-
-			message: '#^Method SJRoyd\\JPK\\VAT\\V2\\BuyRow\:\:setK50\(\) invoked with 0 parameters, 1 required\.$#'
-			identifier: arguments.count
 			count: 1
 			path: src/V2/BuyRow.php
 
@@ -859,18 +811,6 @@ parameters:
 			path: src/V3/BuyRow.php
 
 		-
-			message: '#^Method SJRoyd\\JPK\\VAT\\V3\\BuyRow\:\:getTaxCorrectionArt89bu1\(\) should return float but returns SJRoyd\\JPK\\VAT\\V3\\SellRow\.$#'
-			identifier: return.type
-			count: 1
-			path: src/V3/BuyRow.php
-
-		-
-			message: '#^Method SJRoyd\\JPK\\VAT\\V3\\BuyRow\:\:getTaxCorrectionArt89bu4\(\) should return float but returns SJRoyd\\JPK\\VAT\\V3\\SellRow\.$#'
-			identifier: return.type
-			count: 1
-			path: src/V3/BuyRow.php
-
-		-
 			message: '#^Method SJRoyd\\JPK\\VAT\\V3\\BuyRow\:\:setContractorAddress\(\) has invalid return type SJRoyd\\JPK\\VAT\\Helper\\SellRow\.$#'
 			identifier: return.trait
 			count: 1
@@ -915,18 +855,6 @@ parameters:
 		-
 			message: '#^Method SJRoyd\\JPK\\VAT\\V3\\BuyRow\:\:setId\(\) should return SJRoyd\\JPK\\VAT\\Helper\\SellRow but returns \$this\(SJRoyd\\JPK\\VAT\\V3\\BuyRow\)\.$#'
 			identifier: return.type
-			count: 1
-			path: src/V3/BuyRow.php
-
-		-
-			message: '#^Method SJRoyd\\JPK\\VAT\\V3\\BuyRow\:\:setK49\(\) invoked with 0 parameters, 1 required\.$#'
-			identifier: arguments.count
-			count: 1
-			path: src/V3/BuyRow.php
-
-		-
-			message: '#^Method SJRoyd\\JPK\\VAT\\V3\\BuyRow\:\:setK50\(\) invoked with 0 parameters, 1 required\.$#'
-			identifier: arguments.count
 			count: 1
 			path: src/V3/BuyRow.php
 

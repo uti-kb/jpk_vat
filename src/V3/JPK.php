@@ -166,6 +166,7 @@ class JPK implements XmlSerializable, XmlDeserializable
 
         foreach($children as $child) {
             $child['value'] instanceof Header       && $jpk->header      = $child['value'];
+            $child['value'] instanceof Company      && $jpk->company     = $child['value'];
             $child['value'] instanceof BuyRow       && $jpk->buyRows[]   = $child['value'];
             $child['value'] instanceof BuyControl   && $jpk->buyControl  = $child['value'];
             $child['value'] instanceof SellRow      && $jpk->sellRows[]  = $child['value'];

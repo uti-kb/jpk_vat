@@ -173,7 +173,7 @@ class BuyRow implements XmlSerializable, XmlDeserializable
      */
     public function getTaxCorrectionArt89bu1()
     {
-        return $this->setK48();
+        return $this->getK48();
     }
 
     /**
@@ -191,7 +191,7 @@ class BuyRow implements XmlSerializable, XmlDeserializable
      */
     public function getTaxCorrectionArt89bu4()
     {
-        return $this->setK49();
+        return $this->getK49();
     }
 
     /**
