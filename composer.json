@@ -24,5 +24,9 @@
         "psr-4" : {
             "SJRoyd\\JPK\\VAT\\" : "src/"
         }
+    },
+    "require-dev": {
+        "rector/rector": "^2.4",
+        "phpstan/phpstan": "^2.2"
     }
 }
