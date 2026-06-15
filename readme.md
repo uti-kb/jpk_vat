@@ -107,6 +107,7 @@ Istnieje możliwość generowania i parsowania konkretnych wariantów. W tym cel
 Obiekt Header `($jpk->header)`:
 
 - `setPeriod($year, $month)` okres rozliczeniowy (Rok, Miesiac); rok od 2026
+- `setRangeDates($from, $to)` elastyczny odpowiednik `setPeriod()` — przyjmuje rok i miesiąc (`setRangeDates(2026, 2)`) **albo** dwie daty (`setRangeDates('2026-02-01', '2026-02-28')`, także instancje `DateTime`). Nagłówek JPK_V7M przechowuje wyłącznie `Rok` i `Miesiac`, więc z zakresu dat brany jest okres daty początkowej.
 - `setOfficeCode($code)` czterocyfrowy kod urzędu skarbowego (KodUrzedu)
 - `setSystemName($name)` nazwa systemu (NazwaSystemu, opcjonalna)
 - `setCorrection()` oznacza plik jako korektę (CelZlozenia = 2)

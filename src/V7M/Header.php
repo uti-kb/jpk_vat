@@ -120,6 +120,33 @@ class Header implements Helper\HeaderInterface, XmlSerializable, XmlDeserializab
     }
 
     /**
+     * Settlement period - accepts either a year and a month
+     * or a date range; the JPK_V7M header stores only Rok and Miesiac,
+     * so a date range is reduced to the period of its start date.
+     *
+     *   setRangeDates(2026, 2)
+     *   setRangeDates('2026-02-01', '2026-02-28')
+     *   setRangeDates($dateFrom, $dateTo)
+     *
+     * @param int|string|\DateTime $from year or start date
+     * @param int|string|\DateTime $to month or end date
+     * @return Header
+     */
+    public function setRangeDates($from, $to): static
+    {
+        if (!$from instanceof \DateTime
+            && is_numeric($from) && is_numeric($to)
+            && (int) $from >= 1000
+            && (int) $to >= 1 && (int) $to <= 12
+        ) {
+            return $this->setPeriod((int) $from, (int) $to);
+        }
+
+        $date = $from instanceof \DateTime ? $from : new \DateTime($from);
+        return $this->setPeriod((int) $date->format('Y'), (int) $date->format('n'));
+    }
+
+    /**
      * @return string
      */
     public function getSystemName()
