@@ -176,7 +176,7 @@ class SellRow implements XmlSerializable, XmlDeserializable
      * @param \DateTime|string $sellDate
      * @return SellRow
      */
-    public function setSellDate($sellDate)
+    public function setSellDate($sellDate): static
     {
         $this->sellDate = $sellDate instanceof \DateTime
                 ? $sellDate : new \DateTime($sellDate);
@@ -195,7 +195,7 @@ class SellRow implements XmlSerializable, XmlDeserializable
      * @param \DateTime|string $issueDate
      * @return SellRow
      */
-    public function setIssueDate($issueDate)
+    public function setIssueDate($issueDate): static
     {
         $this->issueDate = $issueDate instanceof \DateTime
                 ? $issueDate : new \DateTime($issueDate);
@@ -214,7 +214,7 @@ class SellRow implements XmlSerializable, XmlDeserializable
      * @param string $countryCode
      * @return SellRow
      */
-    public function setCountryCode($countryCode)
+    public function setCountryCode($countryCode): static
     {
         $this->countryCode = $countryCode;
         return $this;
@@ -234,7 +234,7 @@ class SellRow implements XmlSerializable, XmlDeserializable
      * @param float $net
      * @return $this
      */
-    public function setTaxExempt($net)
+    public function setTaxExempt($net): static
     {
         $this->setK10($net);
         return $this;
@@ -244,7 +244,7 @@ class SellRow implements XmlSerializable, XmlDeserializable
      * C2 and C2a
      * @return array
      */
-    public function getAbroadDelivery()
+    public function getAbroadDelivery(): array
     {
         return
             is_null($this->getK11())
@@ -261,7 +261,7 @@ class SellRow implements XmlSerializable, XmlDeserializable
      * @param float $netA C2a
      * @return $this
      */
-    public function setAbroadDelivery($net, $netA = null)
+    public function setAbroadDelivery($net, $netA = null): static
     {
         $this->setK11($net);
         $this->setK12($netA);
@@ -272,7 +272,7 @@ class SellRow implements XmlSerializable, XmlDeserializable
      * C3 and C3a 0%
      * @return array
      */
-    public function getTaxD()
+    public function getTaxD(): array
     {
         return
             is_null($this->getK13())
@@ -289,7 +289,7 @@ class SellRow implements XmlSerializable, XmlDeserializable
      * @param float $netA C3a
      * @return $this
      */
-    public function setTaxD($net, $netA = null)
+    public function setTaxD($net, $netA = null): static
     {
         $this->setK13($net);
         $this->setK14($netA);
@@ -300,7 +300,7 @@ class SellRow implements XmlSerializable, XmlDeserializable
      * C4 5%
      * @return array
      */
-    public function getTaxC()
+    public function getTaxC(): array
     {
         return
             is_null($this->getK15())
@@ -317,7 +317,7 @@ class SellRow implements XmlSerializable, XmlDeserializable
      * @param float $tax
      * @return $this
      */
-    public function setTaxC($net, $tax)
+    public function setTaxC($net, $tax): static
     {
         $this->setK15($net);
         $this->setK16($tax);
@@ -328,7 +328,7 @@ class SellRow implements XmlSerializable, XmlDeserializable
      * C5 8%
      * @return array
      */
-    public function getTaxB()
+    public function getTaxB(): array
     {
         return
             is_null($this->getK17())
@@ -345,7 +345,7 @@ class SellRow implements XmlSerializable, XmlDeserializable
      * @param type $tax
      * @return $this
      */
-    public function setTaxB($net, $tax)
+    public function setTaxB($net, $tax): static
     {
         $this->setK17($net);
         $this->setK18($tax);
@@ -356,7 +356,7 @@ class SellRow implements XmlSerializable, XmlDeserializable
      * C6 23%
      * @return array
      */
-    public function getTaxA()
+    public function getTaxA(): array
     {
         return
             is_null($this->getK19())
@@ -373,7 +373,7 @@ class SellRow implements XmlSerializable, XmlDeserializable
      * @param float $tax
      * @return $this
      */
-    public function setTaxA($net, $tax)
+    public function setTaxA($net, $tax): static
     {
         $this->setK19($net);
         $this->setK20($tax);
@@ -394,7 +394,7 @@ class SellRow implements XmlSerializable, XmlDeserializable
      * @param float $net
      * @return $this
      */
-    public function setExportUE($net)
+    public function setExportUE($net): static
     {
         $this->setK21($net);
         return $this;
@@ -414,7 +414,7 @@ class SellRow implements XmlSerializable, XmlDeserializable
      * @param float $net
      * @return $this
      */
-    public function setExport($net)
+    public function setExport($net): static
     {
         $this->setK22($net);
         return $this;
@@ -424,7 +424,7 @@ class SellRow implements XmlSerializable, XmlDeserializable
      * C9
      * @return array
      */
-    public function getImportUE()
+    public function getImportUE(): array
     {
         return
             is_null($this->getK23())
@@ -441,7 +441,7 @@ class SellRow implements XmlSerializable, XmlDeserializable
      * @param float $tax
      * @return $this
      */
-    public function setImportUE($net, $tax)
+    public function setImportUE($net, $tax): static
     {
         $this->setK23($net);
         $this->setK24($tax);
@@ -452,7 +452,7 @@ class SellRow implements XmlSerializable, XmlDeserializable
      * C10
      * @return array
      */
-    public function getImport_Art33a()
+    public function getImport_Art33a(): array
     {
         return
             is_null($this->getK25())
@@ -469,7 +469,7 @@ class SellRow implements XmlSerializable, XmlDeserializable
      * @param float $tax
      * @return $this
      */
-    public function setImport_Art33a($net, $tax)
+    public function setImport_Art33a($net, $tax): static
     {
         $this->setK25($net);
         $this->setK26($tax);
@@ -480,7 +480,7 @@ class SellRow implements XmlSerializable, XmlDeserializable
      * C11
      * @return array
      */
-    public function getImport_Art28bExcept()
+    public function getImport_Art28bExcept(): array
     {
         return
             is_null($this->getK27())
@@ -497,7 +497,7 @@ class SellRow implements XmlSerializable, XmlDeserializable
      * @param float $tax
      * @return $this
      */
-    public function setImport_Art28bExcept($net, $tax)
+    public function setImport_Art28bExcept($net, $tax): static
     {
         $this->setK27($net);
         $this->setK28($tax);
@@ -508,7 +508,7 @@ class SellRow implements XmlSerializable, XmlDeserializable
      * C23
      * @return array
      */
-    public function getImport_Art28bOnly()
+    public function getImport_Art28bOnly(): array
     {
         return
             is_null($this->getK29())
@@ -525,7 +525,7 @@ class SellRow implements XmlSerializable, XmlDeserializable
      * @param float $tax
      * @return $this
      */
-    public function setImport_Art28bOnly($net, $tax)
+    public function setImport_Art28bOnly($net, $tax): static
     {
         $this->setK29($net);
         $this->setK30($tax);
@@ -546,7 +546,7 @@ class SellRow implements XmlSerializable, XmlDeserializable
      * @param float $net
      * @return $this
      */
-    public function setReverseChargeSeller_Art17u1p7_8($net)
+    public function setReverseChargeSeller_Art17u1p7_8($net): static
     {
         $this->setK31($net);
         return $this;
@@ -556,7 +556,7 @@ class SellRow implements XmlSerializable, XmlDeserializable
      * C14
      * @return array
      */
-    public function getReverseChargeBuyer_Art17u1p5()
+    public function getReverseChargeBuyer_Art17u1p5(): array
     {
         return
             is_null($this->getK32())
@@ -573,7 +573,7 @@ class SellRow implements XmlSerializable, XmlDeserializable
      * @param float $tax
      * @return $this
      */
-    public function setReverseChargeBuyer_Art17u1p5($net, $tax)
+    public function setReverseChargeBuyer_Art17u1p5($net, $tax): static
     {
         $this->setK32($net);
         $this->setK33($tax);
@@ -584,7 +584,7 @@ class SellRow implements XmlSerializable, XmlDeserializable
      * C15
      * @return array
      */
-    public function getReverseChargeBuyer_Art17u1p7_8()
+    public function getReverseChargeBuyer_Art17u1p7_8(): array
     {
         return
             is_null($this->getK34())
@@ -601,7 +601,7 @@ class SellRow implements XmlSerializable, XmlDeserializable
      * @param float $tax
      * @return $this
      */
-    public function setReverseChargeBuyer_Art17u1p7_8($net, $tax)
+    public function setReverseChargeBuyer_Art17u1p7_8($net, $tax): static
     {
         $this->setK34($net);
         $this->setK35($tax);
@@ -622,7 +622,7 @@ class SellRow implements XmlSerializable, XmlDeserializable
      * @param float $tax
      * @return $this
      */
-    public function setPsychicalInventoryTax($tax)
+    public function setPsychicalInventoryTax($tax): static
     {
         $this->setK36($tax);
         return $this;
@@ -642,7 +642,7 @@ class SellRow implements XmlSerializable, XmlDeserializable
      * @param float $tax
      * @return $this
      */
-    public function setCashRegisterTaxBack($tax)
+    public function setCashRegisterTaxBack($tax): static
     {
         $this->setK37($tax);
         return $this;
@@ -662,7 +662,7 @@ class SellRow implements XmlSerializable, XmlDeserializable
      * @param float $tax
      * @return $this
      */
-    public function setTransportImportUeTaxDue($tax)
+    public function setTransportImportUeTaxDue($tax): static
     {
         $this->setK38($tax);
         return $this;
@@ -682,7 +682,7 @@ class SellRow implements XmlSerializable, XmlDeserializable
      * @param float $tax
      * @return $this
      */
-    public function setFuelImportUeTax($tax)
+    public function setFuelImportUeTax($tax): static
     {
         $this->setK39($tax);
         return $this;
@@ -691,7 +691,7 @@ class SellRow implements XmlSerializable, XmlDeserializable
     /**
      * @throws \InvalidArgumentException
      */
-    private function validate()
+    private function validate(): void
     {
         if (!$this->id) {
             throw new \InvalidArgumentException('Document ID missing');
@@ -735,12 +735,10 @@ class SellRow implements XmlSerializable, XmlDeserializable
             ]);
         }
 
-        $fields = array_filter($this->fields, function($val){
-            return $val !== null;
-        });
+        $fields = array_filter($this->fields, fn($val): bool => $val !== null);
 
         foreach ($fields as $field => $value) {
-            $field = preg_replace('/^K(\d+)$/', 'K_\1', $field);
+            $field = preg_replace('/^K(\d+)$/', 'K_\1', (string) $field);
 
             $writer->write([Schema::getFullNS('TNS') . $field => $value]);
         }

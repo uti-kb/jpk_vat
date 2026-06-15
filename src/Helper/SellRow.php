@@ -9,7 +9,7 @@ trait SellRow
      * C1
      * @return null
      */
-    public function getTaxExempt()
+    public function getTaxExempt(): null
     {
         return null;
     }
@@ -28,7 +28,7 @@ trait SellRow
      * C2 and C2a
      * @return null
      */
-    public function getAbroadDelivery()
+    public function getAbroadDelivery(): null
     {
         return null;
     }
@@ -48,7 +48,7 @@ trait SellRow
      * C3 and C3a
      * @return null
      */
-    public function getTaxD()
+    public function getTaxD(): null
     {
         return null;
     }
@@ -68,7 +68,7 @@ trait SellRow
      * C4
      * @return null
      */
-    public function getTaxC()
+    public function getTaxC(): null
     {
         return null;
     }
@@ -88,7 +88,7 @@ trait SellRow
      * C5
      * @return null
      */
-    public function getTaxB()
+    public function getTaxB(): null
     {
         return null;
     }
@@ -108,7 +108,7 @@ trait SellRow
      * C6
      * @return null
      */
-    public function getTaxA()
+    public function getTaxA(): null
     {
         return null;
     }
@@ -128,7 +128,7 @@ trait SellRow
      * C7
      * @return null
      */
-    public function getExportUE()
+    public function getExportUE(): null
     {
         return null;
     }
@@ -147,7 +147,7 @@ trait SellRow
      * C8
      * @return null
      */
-    public function getExport()
+    public function getExport(): null
     {
         return null;
     }
@@ -166,7 +166,7 @@ trait SellRow
      * C9
      * @return null
      */
-    public function getImportUE()
+    public function getImportUE(): null
     {
         return null;
     }
@@ -186,7 +186,7 @@ trait SellRow
      * C10
      * @return null
      */
-    public function getImport_Art33a()
+    public function getImport_Art33a(): null
     {
         return null;
     }
@@ -206,7 +206,7 @@ trait SellRow
      * C11
      * @return null
      */
-    public function getImport_Art28bExcept()
+    public function getImport_Art28bExcept(): null
     {
         return null;
     }
@@ -226,7 +226,7 @@ trait SellRow
      * C12
      * @return null
      */
-    public function getImport_Art28bOnly()
+    public function getImport_Art28bOnly(): null
     {
         return null;
     }
@@ -246,7 +246,7 @@ trait SellRow
      * C13
      * @return null
      */
-    public function getReverseChargeSeller_Art17u1p7_8()
+    public function getReverseChargeSeller_Art17u1p7_8(): null
     {
         return null;
     }
@@ -265,7 +265,7 @@ trait SellRow
      * C14
      * @return null
      */
-    public function getReverseChargeBuyer_Art17u1p5()
+    public function getReverseChargeBuyer_Art17u1p5(): null
     {
         return null;
     }
@@ -285,7 +285,7 @@ trait SellRow
      * C15
      * @return null
      */
-    public function getReverseChargeBuyer_Art17u1p7_8()
+    public function getReverseChargeBuyer_Art17u1p7_8(): null
     {
         return null;
     }
@@ -305,7 +305,7 @@ trait SellRow
      * C16
      * @return null
      */
-    public function getPsychicalInventoryTax()
+    public function getPsychicalInventoryTax(): null
     {
         return null;
     }
@@ -324,7 +324,7 @@ trait SellRow
      * C17
      * @return null
      */
-    public function getCashRegisterTaxBack()
+    public function getCashRegisterTaxBack(): null
     {
         return null;
     }
@@ -343,7 +343,7 @@ trait SellRow
      * C18
      * @return null
      */
-    public function getTransportImportUeTaxDue()
+    public function getTransportImportUeTaxDue(): null
     {
         return null;
     }
@@ -362,7 +362,7 @@ trait SellRow
      * C19
      * @return null
      */
-    public function getFuelImportUeTax()
+    public function getFuelImportUeTax(): null
     {
         return null;
     }

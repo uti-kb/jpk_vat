@@ -7,7 +7,7 @@ trait Header
     /**
      * @return string
      */
-    public function getFormCode()
+    public function getFormCode(): string
     {
         return 'JPK_VAT';
     }
@@ -15,7 +15,7 @@ trait Header
     /**
      * @return string
      */
-    public function getSystemCode()
+    public function getSystemCode(): string
     {
         return "JPK_VAT ($this->variant)";
     }

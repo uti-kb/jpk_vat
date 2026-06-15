@@ -11,7 +11,7 @@ class Parser
     protected $xml_current_field = '';
     protected $xmlHeader;
     protected $systemCode;
-    private $substringLimit = 4096;
+    private int $substringLimit = 4096;
 
     /**
      * @param string $xml
@@ -49,8 +49,8 @@ class Parser
         xml_parser_free($parser);
 
         foreach($this->xmlHeader as $k => $v){
-            if(strpos($k, ':') !== 0){
-                $this->xmlHeader[substr($k, strpos($k, ':'), strlen($k))] = $v;
+            if(!str_starts_with((string) $k, ':')){
+                $this->xmlHeader[substr((string) $k, strpos((string) $k, ':'), strlen((string) $k))] = $v;
             }
         }
     }
@@ -62,8 +62,8 @@ class Parser
      */
     protected function xml_cdata($p, $text){
         $str = $this->xml_current_field;
-        if(strpos($str, ':') !== false){
-            $str = substr($str, strpos($str, ':'), strlen($str));
+        if(str_contains((string) $str, ':')){
+            $str = substr((string) $str, strpos((string) $str, ':'), strlen((string) $str));
         }
 
         if(isset($this->xml_record[$str])){
@@ -78,7 +78,7 @@ class Parser
      * @param type $element
      * @param type $attributes
      */
-    protected function xml_start_element($p, $element, &$attributes){
+    protected function xml_start_element($p, $element, array &$attributes){
         $str = preg_replace('~(.+:)?(.*)~', '$2', $element);
         $this->xml_current_field = $str;
 

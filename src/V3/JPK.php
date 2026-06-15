@@ -16,35 +16,23 @@ use Sabre\Xml\XmlSerializable;
  */
 class JPK implements XmlSerializable, XmlDeserializable
 {
-    /**
-     * @var Header
-     */
-    private $header;
+    private \SJRoyd\JPK\VAT\V3\Header $header;
 
-    /**
-     * @var Company
-     */
-    private $company;
+    private \SJRoyd\JPK\VAT\V3\Company $company;
 
     /**
      * @var SellRow[]
      */
-    private $sellRows;
+    private ?array $sellRows = null;
 
-    /**
-     * @var SellControl
-     */
-    private $sellControl;
+    private \SJRoyd\JPK\VAT\V3\SellControl $sellControl;
 
     /**
      * @var BuyRow[]
      */
-    private $buyRows;
+    private ?array $buyRows = null;
 
-    /**
-     * @var BuyControl
-     */
-    private $buyControl;
+    private \SJRoyd\JPK\VAT\V3\BuyControl $buyControl;
 
     public function __construct()
     {
@@ -65,7 +53,7 @@ class JPK implements XmlSerializable, XmlDeserializable
     /**
      * @return SellRow[] $sellRows
      */
-    public function getSellRows()
+    public function getSellRows(): ?array
     {
         return $this->sellRows;
     }
@@ -101,7 +89,7 @@ class JPK implements XmlSerializable, XmlDeserializable
     /**
      * @return BuyRow[]
      */
-    public function getBuyRows()
+    public function getBuyRows(): ?array
     {
         return $this->buyRows;
     }
@@ -178,7 +166,6 @@ class JPK implements XmlSerializable, XmlDeserializable
 
         foreach($children as $child) {
             $child['value'] instanceof Header       && $jpk->header      = $child['value'];
-            $child['value'] instanceof Subject      && $jpk->company     = $child['value'];
             $child['value'] instanceof BuyRow       && $jpk->buyRows[]   = $child['value'];
             $child['value'] instanceof BuyControl   && $jpk->buyControl  = $child['value'];
             $child['value'] instanceof SellRow      && $jpk->sellRows[]  = $child['value'];
@@ -187,7 +174,7 @@ class JPK implements XmlSerializable, XmlDeserializable
         return $jpk;
     }
 
-    public function __get($name)
+    public function __get(string $name): mixed
     {
         return $this->$name;
     }
@@ -197,7 +184,7 @@ class JPK implements XmlSerializable, XmlDeserializable
      * Generate JPK_VAT object to XML
      * @return string
      */
-    public function generate()
+    public function generate(): string
     {
         $xmlService = new Service();
         $xmlService->namespaceMap = [
@@ -210,7 +197,7 @@ class JPK implements XmlSerializable, XmlDeserializable
             Schema::getNS('USR') => 'usr',
         ];
 
-        return $xmlService->write(Schema::getFullNS('TNS') . 'JPK', function($xmlWriter) {
+        return $xmlService->write(Schema::getFullNS('TNS') . 'JPK', function($xmlWriter): void {
             $xmlWriter->writeAttribute('xsi:schemaLocation', 'http://jpk.mf.gov.pl/wzor/2017/11/13/1113/ http://www.mf.gov.pl/documents/764034/6145258/Schemat_JPK_VAT(3)_v1-1.xsd');
             $xmlWriter->write($this);
         });

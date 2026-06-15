@@ -48,7 +48,7 @@ class Header implements Helper\HeaderInterface, XmlSerializable, XmlDeserializab
     /**
      * @return string
      */
-    public function getSystemCode()
+    public function getSystemCode(): string
     {
         return "JPK_V7M ($this->variant)";
     }
@@ -65,7 +65,7 @@ class Header implements Helper\HeaderInterface, XmlSerializable, XmlDeserializab
      * Marks the file as a correction (CelZlozenia = 2)
      * @return Header
      */
-    public function setCorrection()
+    public function setCorrection(): static
     {
         $this->reason = 2;
         return $this;
@@ -84,7 +84,7 @@ class Header implements Helper\HeaderInterface, XmlSerializable, XmlDeserializab
      * @param string $officeCode
      * @return Header
      */
-    public function setOfficeCode($officeCode)
+    public function setOfficeCode($officeCode): static
     {
         $this->officeCode = $officeCode;
         return $this;
@@ -112,7 +112,7 @@ class Header implements Helper\HeaderInterface, XmlSerializable, XmlDeserializab
      * @param int $month
      * @return Header
      */
-    public function setPeriod($year, $month)
+    public function setPeriod($year, $month): static
     {
         $this->year = (int) $year;
         $this->month = (int) $month;
@@ -131,7 +131,7 @@ class Header implements Helper\HeaderInterface, XmlSerializable, XmlDeserializab
      * @param string $systemName
      * @return Header
      */
-    public function setSystemName($systemName)
+    public function setSystemName($systemName): static
     {
         $this->systemName = $systemName;
         return $this;

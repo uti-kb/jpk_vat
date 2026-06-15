@@ -188,7 +188,7 @@ class Declaration implements XmlSerializable, XmlDeserializable
      * @return Declaration|float|string|null
      * @throws \InvalidArgumentException
      */
-    public function __call($name, $values)
+    public function __call(string $name, array $values)
     {
         if (!preg_match('~^(set|get)P(\d+)$~', $name, $m)) {
             throw new \InvalidArgumentException("Method {$name} not exists");
@@ -263,7 +263,7 @@ class Declaration implements XmlSerializable, XmlDeserializable
      * @return Declaration
      * @throws \InvalidArgumentException
      */
-    public function setRefund($amount, $option)
+    public function setRefund($amount, $option): static
     {
         if (!in_array($option, [
             self::REFUND_15_DAYS,
@@ -306,7 +306,7 @@ class Declaration implements XmlSerializable, XmlDeserializable
      * @param string $text
      * @return Declaration
      */
-    public function setCorrectionReason($text)
+    public function setCorrectionReason($text): static
     {
         $this->fields['P_ORDZU'] = $text;
         return $this;
@@ -349,9 +349,7 @@ class Declaration implements XmlSerializable, XmlDeserializable
             ]
         ]);
 
-        $fields = array_filter($this->fields, function($val){
-            return $val !== null;
-        });
+        $fields = array_filter($this->fields, fn($val): bool => $val !== null);
 
         $items = [];
         foreach ($fields as $field => $value) {
@@ -374,8 +372,8 @@ class Declaration implements XmlSerializable, XmlDeserializable
     public static function xmlDeserialize(Reader $reader)
     {
         $children = $reader->parseInnerTree([
-            Schema::TNS.'Naglowek'           => 'Sabre\Xml\Element\KeyValue',
-            Schema::TNS.'PozycjeSzczegolowe' => 'Sabre\Xml\Element\KeyValue',
+            Schema::TNS.'Naglowek'           => \Sabre\Xml\Element\KeyValue::class,
+            Schema::TNS.'PozycjeSzczegolowe' => \Sabre\Xml\Element\KeyValue::class,
         ]);
 
         $object = new self();

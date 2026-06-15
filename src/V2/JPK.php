@@ -16,35 +16,23 @@ use Sabre\Xml\XmlSerializable;
  */
 class JPK implements XmlSerializable, XmlDeserializable
 {
-    /**
-     * @var Header
-     */
-    private $header;
+    private \SJRoyd\JPK\VAT\V2\Header $header;
 
-    /**
-     * @var Company
-     */
-    private $company;
+    private \SJRoyd\JPK\VAT\V2\Company $company;
 
     /**
      * @var SellRow[]
      */
-    private $sellRows;
+    private ?array $sellRows = null;
 
-    /**
-     * @var SellControl
-     */
-    private $sellControl;
+    private \SJRoyd\JPK\VAT\V2\SellControl $sellControl;
 
     /**
      * @var BuyRow[]
      */
-    private $buyRows;
+    private ?array $buyRows = null;
 
-    /**
-     * @var BuyControl
-     */
-    private $buyControl;
+    private \SJRoyd\JPK\VAT\V2\BuyControl $buyControl;
 
     public function __construct()
     {
@@ -66,7 +54,7 @@ class JPK implements XmlSerializable, XmlDeserializable
      * @param SellRow[] $sellRows
      * @return JPK
      */
-    public function setSellRows(array $sellRows)
+    public function setSellRows(array $sellRows): static
     {
         $this->sellRows = $sellRows;
         return $this;
@@ -76,7 +64,7 @@ class JPK implements XmlSerializable, XmlDeserializable
      * @param SellRow $sellRow
      * @return JPK
      */
-    public function addSellRow(SellRow $sellRow)
+    public function addSellRow(SellRow $sellRow): static
     {
         $this->sellRows[] = $sellRow;
         return $this;
@@ -94,7 +82,7 @@ class JPK implements XmlSerializable, XmlDeserializable
      * @param BuyRow[] $buyRows
      * @return JPK
      */
-    public function setBuyRows(array $buyRows)
+    public function setBuyRows(array $buyRows): static
     {
         $this->buyRows = $buyRows;
         return $this;
@@ -103,7 +91,7 @@ class JPK implements XmlSerializable, XmlDeserializable
      * @param BuyRow $buyRow
      * @return JPK
      */
-    public function addBuyRow(BuyRow $buyRow)
+    public function addBuyRow(BuyRow $buyRow): static
     {
         $this->buyRows[] = $buyRow;
         return $this;
@@ -184,7 +172,7 @@ class JPK implements XmlSerializable, XmlDeserializable
     }
 
 
-    public function __get($name)
+    public function __get(string $name): mixed
     {
         return $this->$name;
     }
@@ -193,7 +181,7 @@ class JPK implements XmlSerializable, XmlDeserializable
      * Generate JPK_VAT object to XML
      * @return string
      */
-    public function generate()
+    public function generate(): string
     {
         $xmlService = new Service();
         $xmlService->namespaceMap = [

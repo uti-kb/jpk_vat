@@ -139,7 +139,7 @@ trait Row
      * Tax amount of the row counted in the control sums
      * @return float
      */
-    public function getTax()
+    public function getTax(): int|float
     {
         $tax = 0;
         foreach (static::$taxPlus as $field) {
@@ -159,7 +159,7 @@ trait Row
      * @return $this|float|null
      * @throws \InvalidArgumentException
      */
-    public function __call($name, $values)
+    public function __call($name, array $values)
     {
         if (!preg_match('~^(set|get)K(\d+)$~', $name, $m)) {
             throw new \InvalidArgumentException("Method {$name} not exists");
@@ -183,9 +183,7 @@ trait Row
      */
     protected function writeFields(Writer $writer)
     {
-        $fields = array_filter($this->fields, function($val){
-            return $val !== null;
-        });
+        $fields = array_filter($this->fields, fn($val): bool => $val !== null);
 
         foreach ($fields as $field => $value) {
             $writer->write([
